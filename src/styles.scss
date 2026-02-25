@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@layer tailwind-base, primeng, tailwind-utilities;
+@layer tailwind-base {
+  @tailwind base;
+}
+@layer normalize, primeng;
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+html {
+  font-size: 14px;
+  line-height: 20px;
+  color: #172b4d;
+}
+
+input {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+  // width: 6px;
+  // height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2f394952; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f2f4;
+}

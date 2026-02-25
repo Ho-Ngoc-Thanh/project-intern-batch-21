@@ -1,0 +1,76 @@
+:host ::ng-deep {
+  .p-toast {
+    .toast-content {
+      @apply text-white;
+    }
+    
+    .p-toast-icon-close {
+      @apply text-white;
+    }
+
+    .p-toast-message {
+      @apply bg-[#172B4D] border-[#172B4D] rounded-xl;
+      border-width: 1px;
+      cursor: pointer;
+      
+      &-success {
+        i {
+          @apply text-green-500;
+        }
+      }
+
+      &-info {
+        i {
+          @apply text-cyan-600;
+        }
+      }
+
+      &-warn {
+        i {
+          @apply text-orange-500;
+        }
+      }
+
+      &-error {
+        i {
+          @apply text-red-500;
+        }
+      }
+
+      &-contrast {
+        i {
+          @apply text-purple-500;
+        }
+      }
+    }
+    
+    .p-toast-message-icon {
+      display: none !important;
+      width: 0 !important;
+      margin: 0 !important;
+    }
+    
+    .p-toast-message-content {
+      margin-left: -0.5rem !important;
+      padding-left: 0.5rem !important;
+      gap: 0 !important;
+      align-items: center;
+      justify-content: space-between;
+      border-width: 0;
+      .p-toast-icon-close {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    
+    .p-toast-message-text {
+      margin: 0 !important;
+      margin-left: 0 !important;
+    }
+    
+    .p-toast-message:hover {
+      opacity: 0.95;
+      transition: opacity 0.2s ease;
+    }
+  }
+}

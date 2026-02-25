@@ -1,0 +1,23 @@
+<!-- TOAST -->
+<p-toast [position]="'top-right'" [styleClass]="'right-1 max-w-[100vw]'">
+  <ng-template let-message pTemplate="message">
+    <ng-container
+      [ngTemplateOutletContext]="{ message: message }"
+      [ngTemplateOutlet]="messageTemplate"
+    ></ng-container>
+  </ng-template>
+</p-toast>
+
+<!-- TEMPLATE -->
+<ng-template #messageTemplate let-message="message">
+  <div class="flex items-center gap-3 w-full cursor-pointer">
+    <div class="toast-content flex-1 min-w-0 pr-3">
+      <div class="font-semibold">
+        {{ message.summary }}
+      </div>
+      <div style="word-break: break-word">
+        {{ message.detail }}
+      </div>
+    </div>
+  </div>
+</ng-template>
