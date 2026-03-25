@@ -25,3 +25,46 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  
+
+	///
+Cấu trúc project chuẩn Enterprise
+src/app
+│
+├── core/
+│   ├── interceptors/
+│   ├── guards/
+│   ├── services/
+│   ├── models/
+│   └── core.config.ts
+│
+├── shared/
+│   ├── components/
+│   ├── directives/
+│   ├── pipes/
+│   ├── ui/
+│   └── utils/
+│
+├── features/
+│   ├── auth/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── services/
+│   │   └── auth.routes.ts
+│   │
+│   ├── users/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── models/
+│   │   └── users.routes.ts
+│   │
+│   └── dashboard/
+│
+├── layout/
+│   ├── main-layout.component.ts
+│   ├── auth-layout.component.ts
+│
+├── app.config.ts
+├── app.routes.ts
+└── app.component.ts
