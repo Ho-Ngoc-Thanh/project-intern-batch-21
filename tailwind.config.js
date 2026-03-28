@@ -250,6 +250,8 @@ module.exports = {
       lg: ["18px", { lineHeight: "28px" }],
       xl: ["20px", { lineHeight: "30px" }],
       "2xl": ["24px", { lineHeight: "32px" }],
+      "3xl": ["30px", { lineHeight: "36px" }],
+      "4xl": ["36px", { lineHeight: "40px" }],
     },
     borderRadius: {
       none: "0px",
@@ -264,6 +266,9 @@ module.exports = {
       "4xl": "24px",
       "5xl": "36px",
       full: "9999px",
+    },
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
     },
   },
   plugins: [],
