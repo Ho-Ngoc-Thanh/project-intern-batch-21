@@ -1,0 +1,34 @@
+<header
+  class="absolute flex justify-between items-center w-[90%] min-h-17 right-3 rounded-xl bg-white/70"
+>
+  <div class="">
+    <h1 class="relative text-black font-bold text-xl left-3">Properties</h1>
+  </div>
+  <div class="flex items-center">
+    <div class="bg-white rounded-lg p-4 mr-2 border-slate-300 border-[1px]">
+      <input type="search" class="" placeholder="Type Client Name or ID" />
+      <i class="pi pi-search relative right-2"></i>
+    </div>
+    <div
+      class="flex items-center bg-white opacity-100 mr-2 py-2 rounded-lg border-slate-300 border-[1px]"
+    >
+      <div class="flex-none mx-2">
+        <img
+          src="{{ userData.img_Avatar }}"
+          alt="No img"
+          class="w-10 h-10 rounded-md object-cover"
+        />
+      </div>
+
+      <div class="flex flex-1 items-center">
+        <div class="mr-3">
+          <h3 class="font-semibold">{{ userData.name }}</h3>
+          <p class="text-slate-400">{{ userData.email }}</p>
+        </div>
+        <div class="mr-3">
+          <i class="pi pi-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
