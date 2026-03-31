@@ -1,13 +1,17 @@
-<div
-  id="main-layout"
-  class="h-screen box-border p-3 bg-no-repeat bg-right-bottom"
-  style="
-    background-image: url(&quot;/assets/images/dashboard/bg-dashboard.jpg&quot;);
-    background-size: 700%;
-    background-position: 75% 35%;
-  "
->
-  <div class="flex h-full gap-3">
+<div id="main-layout" class="relative h-screen box-border p-3 overflow-hidden">
+  <!-- background image -->
+  <div
+    class="absolute inset-0 bg-no-repeat"
+    style="
+      background-image: url(&quot;/assets/images/dashboard/bg-dashboard.jpg&quot;);
+      background-size: cover;
+      background-position: 50% 25%;
+    "
+  ></div>
+
+  <!-- overlay làm nhạt -->
+  <div class="absolute inset-0 bg-white/70"></div>
+  <div class="relative flex h-full z-40 gap-3">
     <!-- Sidebar -->
     <app-sidebar class="block h-full"></app-sidebar>
 
