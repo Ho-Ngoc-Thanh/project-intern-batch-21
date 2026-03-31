@@ -1,1 +1,55 @@
-<p>sidebar works!</p>
+<div
+  id="sidebar"
+  class="flex flex-col justify-between h-full w-20 bg-white rounded-2xl"
+>
+  <div id="sidebar-heaer">
+    <ul class="flex flex-col items-center mt-6">
+      <ng-container *ngFor="let item of menuItems">
+        <li>
+          <a
+            [routerLink]="item.route"
+            routerLinkActive="bg-emerald-600 !text-white"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="relative flex h-12 w-12 items-center justify-center rounded-md text-slate-500 transition hover:bg-emerald-500 hover:text-white"
+          >
+            <!-- Type: class -->
+            <i
+              *ngIf="item.type === 'class'"
+              [ngClass]="item.icon"
+              class="text-5 leading-none"
+            ></i>
+
+            <!-- Type: svg -->
+            <svg-icon
+              *ngIf="item.type === 'svg'"
+              [src]="item.icon"
+              class=""
+              [svgStyle]="{ 'width.px': 18, 'height.px': 20 }"
+            ></svg-icon>
+
+            <span
+              *ngIf="item.badge"
+              class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 flex items-center justify-center rounded-full bg-red-500 text-[10px] font-semibold text-white"
+            >
+              {{ item.badge > 99 ? "99+" : item.badge }}
+            </span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div id="sidebar-footer" class="flex flex-col items-center mb-4">
+    <div class="">
+      <button
+        class="h-12 w-12 hover:bg-emerald-500 hover:text-white rounded-md"
+      >
+        <i class="pi pi-bell"></i>
+      </button>
+    </div>
+    <div class="">
+      <button class="h-12 w-12">
+        <i class="pi pi-cog"></i>
+      </button>
+    </div>
+  </div>
+</div>
