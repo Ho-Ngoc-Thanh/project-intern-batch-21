@@ -1,17 +1,20 @@
-<div
-  id="main-layout"
-  class="w-full relative p-3 h-[1600px] size-11/12 bg-cover bg-right-top bg-[#fc809a]"
->
-  <!-- style="background: url(&quot;/assets/images/dashboard/bg-dashboard.jpg&quot;)" -->
-  <div id="header" class="">
-    <app-header></app-header>
-  </div>
+<div id="main-layout" class="h-screen box-border p-3 bg-[#fc809a]">
+  <div class="flex h-full gap-3">
+    <!-- Sidebar -->
+    <app-sidebar class="block h-full"></app-sidebar>
 
-  <div id="layout-body">
-    <div id="sidebar">
-      <app-sidebar></app-sidebar>
+    <!-- Body -->
+    <div id="layout-body" class="flex flex-col flex-1 gap-3 overflow-hidden">
+      <!-- Header -->
+      <app-header></app-header>
+
+      <!-- Content -->
+      <div
+        id="container"
+        class="flex-1 bg-white/70 rounded-2xl p-4 overflow-auto"
+      >
+        <router-outlet></router-outlet>
+      </div>
     </div>
-
-    <div id="container">content</div>
   </div>
 </div>
