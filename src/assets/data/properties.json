@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Luxury Condo",
+    "location": "Manhattan, NY",
+    "price": 1800000,
+    "status": "For Sale",
+    "value": "sale",
+    "type": "Residential",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 2100,
+    "image": "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6",
+    "agent": {
+      "name": "Emma Davis",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+      "role": "Listing Agent"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Beach House",
+    "location": "Malibu, CA",
+    "price": 3200000,
+    "status": "Sold",
+    "value": "sold",
+    "type": "Vacation",
+    "beds": 5,
+    "baths": 4,
+    "sqft": 4500,
+    "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+    "agent": {
+      "name": "James Wilson",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+      "role": "Listing Agent"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Modern Apartment",
+    "location": "Chicago, IL",
+    "price": 950000,
+    "status": "For Sale",
+    "value": "sale",
+    "type": "Residential",
+    "beds": 2,
+    "baths": 1,
+    "sqft": 1200,
+    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
+    "agent": {
+      "name": "Sophia Lee",
+      "avatar": "https://randomuser.me/api/portraits/women/65.jpg",
+      "role": "Listing Agent"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Country Villa",
+    "location": "Austin, TX",
+    "price": 2100000,
+    "status": "Sold",
+    "value": "sold",
+    "type": "Villa",
+    "beds": 4,
+    "baths": 3,
+    "sqft": 3500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "agent": {
+      "name": "Michael Brown",
+      "avatar": "https://randomuser.me/api/portraits/men/76.jpg",
+      "role": "Listing Agent"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Studio Flat",
+    "location": "San Francisco, CA",
+    "price": 600000,
+    "status": "For Sale",
+    "value": "sale",
+    "type": "Studio",
+    "beds": 1,
+    "baths": 1,
+    "sqft": 600,
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+    "agent": {
+      "name": "Olivia Taylor",
+      "avatar": "https://randomuser.me/api/portraits/women/22.jpg",
+      "role": "Listing Agent"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Lakeview House",
+    "location": "Seattle, WA",
+    "price": 1750000,
+    "status": "Sold",
+    "value": "sold",
+    "type": "Residential",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 2000,
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+    "agent": {
+      "name": "Daniel Smith",
+      "avatar": "https://randomuser.me/api/portraits/men/41.jpg",
+      "role": "Listing Agent"
+    }
+  }
+]

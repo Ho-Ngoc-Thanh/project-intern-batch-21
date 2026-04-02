@@ -1,0 +1,132 @@
+<div id="featured-properties" class="bg-white/80">
+  <div
+    class="flex flex-col sm:flex-row sm:items-center sm:justify-between content-center p-2"
+  >
+    <div class="ml-2">
+      <h3 class="font-semibold">Featured Propeties</h3>
+      <p class="font-light text-slate-400">Explore our exclusive listings</p>
+    </div>
+    <div class="flex gap-2 p-1 w-fit">
+      <button
+        *ngFor="let item of titleMenuOptions"
+        (click)="selectedValue = item.value"
+        [ngClass]="{
+          'bg-[#009966] text-white': selectedValue === item.value,
+          'text-gray-700': selectedValue !== item.value,
+        }"
+        class="px-4 py-2 rounded-lg transition-all duration-200"
+      >
+        {{ item.label }}
+      </button>
+    </div>
+  </div>
+  <div
+    class="grid grid-cols-1 gap-6 px-4 py-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+  >
+    <ng-container *ngFor="let item of filteredProperties">
+      <div class="w-full overflow-hidden rounded-2xl bg-white shadow-sm">
+        <!-- IMAGE -->
+        <div class="relative">
+          <img
+            src="{{ item.image }}"
+            alt="No img"
+            class="h-[190px] w-full object-cover"
+          />
+
+          <!-- top badges -->
+          <div class="absolute left-4 top-4">
+            <span
+              class="rounded-md bg-white/95 px-3 py-1 text-sm font-medium text-slate-700"
+            >
+              {{ item.type }}
+            </span>
+          </div>
+
+          <div class="absolute right-4 top-4">
+            <span
+              [ngClass]="{
+                'bg-green-700 !text-white': item.status === 'For Sale',
+                'bg-blue-500 text-white': item.status === 'Sold',
+              }"
+              class="rounded-md px-3 py-1 text-sm font-medium"
+            >
+              {{ item.status }}
+            </span>
+          </div>
+
+          <!-- price -->
+          <div class="absolute bottom-4 left-4">
+            <span
+              class="rounded-md bg-white px-3 py-1 text-xl font-bold text-slate-800"
+            >
+              {{ formatPrice(item.price) }}
+            </span>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="space-y-5 p-5">
+          <!-- title + location -->
+          <div class="space-y-2">
+            <h3 class="text-4 font-semibold leading-none text-slate-800">
+              {{ item.name }}
+            </h3>
+
+            <div class="flex items-center gap-2 text-slate-400">
+              <i class="pi pi-map-marker text-sm"></i>
+              <span class="text-base">{{ item.location }}</span>
+            </div>
+          </div>
+
+          <!-- property info -->
+          <div class="flex items-center gap-6 text-slate-500">
+            <div class="flex items-center gap-2">
+              <!-- <i class="pi pi-home text-base"></i> -->
+              <svg-icon
+                [src]="'assets/icons/featured_properties/bed.svg'"
+              ></svg-icon>
+              <span class="text-base">{{ item.beds }}</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <!-- <i class="pi pi-warehouse text-base"></i> -->
+              <svg-icon
+                [src]="'assets/icons/featured_properties/bath.svg'"
+              ></svg-icon>
+              <span class="text-base">{{ item.baths }}</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <i class="pi pi-stop text-base"></i>
+              <span class="text-base">{{ item.sqft }} sqft</span>
+            </div>
+          </div>
+
+          <!-- agent -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <img
+                src="{{ item.agent.avatar }}"
+                alt="agent"
+                class="h-9 w-9 rounded-md object-cover"
+              />
+
+              <div>
+                <p class="text-base font-normal text-slate-800">
+                  {{ item.agent.name }}
+                </p>
+                <p class="text-sm text-slate-400">{{ item.agent.role }}</p>
+              </div>
+            </div>
+
+            <button
+              class="flex h-9 w-9 items-center justify-center rounded-md bg-black text-white transition hover:opacity-90"
+            >
+              <i class="pi pi-arrow-up-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
