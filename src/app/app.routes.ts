@@ -1,23 +1,37 @@
-import { Routes } from "@angular/router"
-import { AuthLayoutComponent } from "./layout/auth-layout/auth-layout.component"
-import { MainLayoutComponent } from "./layout/main-layout/main-layout.component"
-import { NotFoundComponent } from "./shared/components/not-found/not-found.component"
+import { Routes } from '@angular/router';
+import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 export const routes: Routes = [
   {
-    path: "",
-    component: MainLayoutComponent
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./features/dashboard/dashboard.component').then(
+            (c) => c.DashboardComponent,
+          ),
+      },
+    ],
     // canActivate:[authGuard]
   },
   {
-    path: "",
+    path: '',
     component: AuthLayoutComponent,
     loadChildren: () =>
-      import("./features/auth/auth.routes").then((feature) => feature.routes)
+      import('./features/auth/auth.routes').then((feature) => feature.routes),
   },
   {
-    path: "**",
-    pathMatch: "full",
-    component: NotFoundComponent
-  }
-]
+    path: '**',
+    pathMatch: 'full',
+    component: NotFoundComponent,
+  },
+];

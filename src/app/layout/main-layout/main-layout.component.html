@@ -1,1 +1,32 @@
-<p>main-layout works!</p>
+<div id="main-layout" class="relative h-screen box-border p-3 overflow-hidden">
+  <!-- background image -->
+  <div
+    class="absolute inset-0 bg-no-repeat"
+    style="
+      background-image: url(&quot;/assets/images/dashboard/bg-dashboard.jpg&quot;);
+      background-size: cover;
+      background-position: 50% 25%;
+    "
+  ></div>
+
+  <!-- overlay làm nhạt -->
+  <div class="absolute inset-0 bg-white/70"></div>
+  <div class="relative flex h-full z-40 gap-3">
+    <!-- Sidebar -->
+    <app-sidebar class="block h-full"></app-sidebar>
+
+    <!-- Body -->
+    <div id="layout-body" class="flex flex-col flex-1 gap-3 overflow-hidden">
+      <!-- Header -->
+      <app-header></app-header>
+
+      <!-- Content -->
+      <div
+        id="container"
+        class="flex-1 bg-white/70 rounded-2xl p-4 overflow-auto"
+      >
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
