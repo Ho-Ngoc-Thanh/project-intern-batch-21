@@ -1,0 +1,14 @@
+<div class="">
+  <!-- Label -->
+  <label *ngIf="label" class="block mb-1 text-sm font-medium text-gray-700">
+    {{ label }}
+  </label>
+
+  <!-- Input  -->
+  <ng-content></ng-content>
+
+  <!-- Error -->
+  <p *ngIf="errorMessage" class="mt-1 text-sm text-red-500">
+    {{ errorMessage }}
+  </p>
+</div>
