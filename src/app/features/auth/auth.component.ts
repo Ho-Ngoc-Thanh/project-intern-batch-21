@@ -7,11 +7,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormControlComponent } from 'src/app/shared/components/form-control/form-control.component';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, FormControlComponent],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
 })
@@ -19,6 +20,7 @@ export class AuthComponent implements OnInit {
   submitted = false;
   showPassword = false;
   loginForm!: FormGroup;
+  loginError = '';
 
   constructor(private router: Router) {}
   ngOnInit() {
@@ -36,47 +38,45 @@ export class AuthComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  getUsernameErrorMessage(): string {
-    const usernameControl = this.username;
-
-    if (
-      !usernameControl ||
-      !(
-        usernameControl?.touched ||
-        usernameControl?.dirty ||
-        this.submitted === true
-      )
-    )
-      return '';
-
-    if (usernameControl?.hasError('required')) return 'Username is required';
-
-    return '';
-  }
-  getPassErrorMessage(): string {
-    const passControl = this.username;
-
-    if (
-      !passControl ||
-      !(passControl?.touched || passControl?.dirty || this.submitted === true)
-    )
-      return '';
-
-    if (passControl?.hasError('required')) return 'Password is required';
-
-    return '';
-  }
-
-  handleVerfitication() {
-    this.getUsernameErrorMessage;
-    this.getPassErrorMessage;
+  testAccounts = [
+    {
+      username: 'dung',
+      password: '12345',
+    },
+    {
+      username: 'admin',
+      password: 'admin123',
+    },
+  ];
+  handleVerification(username: string, password: string): boolean {
+    return this.testAccounts.some(
+      (account) =>
+        account.username === username && account.password === password,
+    );
   }
 
   handleSubmit() {
     this.submitted = true;
-    // dataLogin = {};
-    console.log('Submitted', this.loginForm);
-    // this.handleVerfitication;
+    this.loginError = '';
+
+    // console.log('Submitted', this.loginForm.value);
+
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
+    const username = this.loginForm.value.username ?? '';
+    const password = this.loginForm.value.password ?? '';
+
+    const isValid = this.handleVerification(username, password);
+
+    if (!isValid) {
+      this.loginError = 'Username hoặc password không đúng';
+      return;
+    }
+
+    // console.log('Login success', { username, password });
     this.router.navigate(['/']);
   }
 
