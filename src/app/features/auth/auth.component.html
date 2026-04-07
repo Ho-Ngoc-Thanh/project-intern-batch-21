@@ -1,1 +1,73 @@
-<p>auth works!</p>
+<div class="bg-white w-full m-7 px-8 py-10 rounded-[24px] shadow-lg">
+  <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+    <div>
+      <h2
+        class="text-4xl font-black font-roboto text-gray-950 text-center leading-normal"
+      >
+        CRM Home
+      </h2>
+    </div>
+    <div class="py-3">
+      <div class="border-b-2 border-gray-300 placeholder-gray-500 mt-8 pb-3">
+        <!-- Username -->
+        <app-form-control
+          [control]="loginForm.controls['username']"
+          [submitted]="submitted"
+          [validators]="[
+            { error: 'required', message: 'Username is required' },
+          ]"
+        >
+          <div class="flex items-center">
+            <input
+              formControlName="username"
+              type="text"
+              class="w-full outline-none"
+              placeholder="Username"
+            />
+            <i class="pi pi-user"></i>
+          </div>
+        </app-form-control>
+      </div>
+      <div
+        class="border-b-2 border-gray-300 placeholder-gray-500 mt-10 mb-4 pb-3"
+      >
+        <!-- password -->
+        <app-form-control
+          [control]="loginForm.controls['password']"
+          [submitted]="submitted"
+          [validators]="[
+            { error: 'required', message: 'password is required' },
+          ]"
+        >
+          <div class="flex items-center">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="Pass"
+              class="w-full outline-none"
+            />
+            <i
+              class="pi cursor-pointer"
+              [ngClass]="showPassword ? 'pi-eye' : 'pi-eye-slash'"
+              (click)="togglePassword()"
+            ></i>
+          </div>
+        </app-form-control>
+      </div>
+      <div class="">
+        <!-- Error login -->
+        <p *ngIf="loginError" class="mt-2 text-sm text-red-500">
+          {{ loginError }}
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-center content-center my-5 mb-2">
+      <button
+        type="submit"
+        class="w-full h-13 text-white rounded-5xl bg-brand-primary hover:bg-green-500"
+      >
+        ENTRAR
+      </button>
+    </div>
+  </form>
+</div>
