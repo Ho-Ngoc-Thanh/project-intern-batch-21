@@ -66,7 +66,7 @@ export class AuthComponent implements OnInit {
       },
       error: (err) => {
         if (err.status === 0) {
-          console.log('login error: ', err);
+          // console.log('login error: ', err);
           this.loginError = 'Không thể kết nối đến máy chủ.';
           return;
         }
