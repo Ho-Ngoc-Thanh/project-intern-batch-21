@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { FormControlComponent } from 'src/app/shared/components/form-control/form-control.component';
 
 @Component({
@@ -22,62 +23,57 @@ export class AuthComponent implements OnInit {
   loginForm!: FormGroup;
   loginError = '';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {}
   ngOnInit() {
     this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
+      loginId: new FormControl('', [
+        Validators.required,
+        Validators.pattern(
+          /^(\+?\d{9,11}|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,})$/,
+        ),
+      ]),
       password: new FormControl('', Validators.required),
     });
   }
 
   get username() {
-    return this.loginForm.get('username');
+    return this.loginForm.get('loginId');
   }
 
   get password() {
     return this.loginForm.get('password');
   }
 
-  testAccounts = [
-    {
-      username: 'dung',
-      password: '12345',
-    },
-    {
-      username: 'admin',
-      password: 'admin123',
-    },
-  ];
-  handleVerification(username: string, password: string): boolean {
-    return this.testAccounts.some(
-      (account) =>
-        account.username === username && account.password === password,
-    );
-  }
-
   handleSubmit() {
     this.submitted = true;
     this.loginError = '';
-
-    // console.log('Submitted', this.loginForm.value);
 
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
     }
 
-    const username = this.loginForm.value.username ?? '';
-    const password = this.loginForm.value.password ?? '';
+    const { loginId, password } = this.loginForm.value;
 
-    const isValid = this.handleVerification(username, password);
+    // console.log('data login: ', loginId, password);
 
-    if (!isValid) {
-      this.loginError = 'Username hoặc password không đúng';
-      return;
-    }
+    this.authService.login({ loginId, password }).subscribe({
+      next: (res) => {
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        if (err.status === 0) {
+          console.log('login error: ', err);
+          this.loginError = 'Không thể kết nối đến máy chủ.';
+          return;
+        }
 
-    // console.log('Login success', { username, password });
-    this.router.navigate(['/']);
+        this.loginError = err?.error?.message || 'Đăng nhập thất bại.';
+      },
+    });
   }
 
   togglePassword() {
