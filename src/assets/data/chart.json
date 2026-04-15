@@ -1,0 +1,12 @@
+    {
+  "chartData": [
+    { "month": "Jan", "value": "22" },
+    { "month": "Feb", "value": "35" },
+    { "month": "Mar", "value": "55" },
+    { "month": "Apr", "value": "30" },
+    { "month": "May", "value": "45" },
+    { "month": "Jun", "value": "50" },
+    { "month": "Jul", "value": "28" },
+    { "month": "Aug", "value": "40" }
+  ]
+}
