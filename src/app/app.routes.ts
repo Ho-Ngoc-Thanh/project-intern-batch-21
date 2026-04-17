@@ -30,6 +30,13 @@ export const routes: Routes = [
       import('./features/auth/auth.routes').then((feature) => feature.routes),
   },
   {
+    path: 'calendar',
+    loadComponent: () =>
+      import('./features/schedule-calendar/schedule-calendar.component').then(
+        (c) => c.ScheduleCalendarComponent,
+      ),
+  },
+  {
     path: '**',
     pathMatch: 'full',
     component: NotFoundComponent,

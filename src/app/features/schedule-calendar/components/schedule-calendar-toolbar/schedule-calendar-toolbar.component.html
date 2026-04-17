@@ -1,0 +1,97 @@
+<div class="">
+  <div class="flex justify-between">
+    <div class="w-[330px]">
+      <form [formGroup]="toolbarForm">
+        <app-form-control>
+          <div
+            class="flex items-center px-3 py-2 ml-4 rounded-[4px] border border-gray-300 bg-white shadow-sm"
+          >
+            <i class="pi pi-search text-gray-400 mr-2"></i>
+
+            <input
+              formControlName="search"
+              type="text"
+              placeholder="Search by name, ID, or phone number"
+              class="w-full outline-none text-sm placeholder-gray-400"
+            />
+          </div>
+        </app-form-control>
+      </form>
+    </div>
+    <div class="flex items-center gap-1">
+      <!-- Filters -->
+
+      <button
+        type="button"
+        class="inline-flex h-8 items-center gap-2 rounded-sm border border-slate-300 bg-white px-3 text-[15px] font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+      >
+        <svg-icon
+          src="assets/icons/schedule_calendar/filters.svg"
+          [svgStyle]="{ width: '18px', height: '18px' }"
+        ></svg-icon>
+        <span>Filters</span>
+      </button>
+
+      <!-- List / Calendar group -->
+      <div
+        class="inline-flex h-8 overflow-hidden rounded-sm border border-slate-300 bg-white shadow-sm"
+      >
+        <button
+          type="button"
+          (click)="selectedView = 'list'"
+          [ngClass]="
+            selectedView === 'list'
+              ? 'bg-slate-100 text-slate-900'
+              : 'bg-white text-slate-700 hover:bg-slate-50'
+          "
+          class="inline-flex items-center gap-2 border-r border-slate-300 px-3 text-[15px] font-medium"
+        >
+          <i class="pi pi-list text-sm"></i>
+          <span>List</span>
+        </button>
+
+        <button
+          type="button"
+          (click)="selectedView = 'calendar'"
+          [ngClass]="
+            selectedView === 'calendar'
+              ? 'bg-slate-100 text-slate-900'
+              : 'bg-white text-slate-700 hover:bg-slate-50'
+          "
+          class="inline-flex items-center gap-2 px-3 text-[15px] font-medium"
+        >
+          <i class="pi pi-calendar text-sm"></i>
+          <span>Calendar</span>
+        </button>
+      </div>
+
+      <!-- Column view -->
+      <button
+        type="button"
+        class="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-slate-300 bg-white text-slate-700 shadow-sm hover:bg-slate-50"
+      >
+        <svg-icon
+          src="assets/icons/schedule_calendar/column_view.svg"
+          [svgStyle]="{ width: '14px', height: '14px' }"
+        ></svg-icon>
+      </button>
+
+      <!-- Import -->
+      <button
+        type="button"
+        class="inline-flex h-8 items-center rounded-sm border border-slate-300 bg-white px-3 text-[15px] font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+      >
+        Import
+      </button>
+
+      <!-- Create -->
+      <button
+        type="button"
+        class="inline-flex h-8 items-center gap-2 rounded-sm border border-blue-500 bg-blue-500 px-6 text-[15px] font-medium text-white shadow-sm hover:bg-blue-600"
+      >
+        <i class="pi pi-plus-circle text-sm"></i>
+        <span>Create</span>
+      </button>
+    </div>
+  </div>
+</div>
