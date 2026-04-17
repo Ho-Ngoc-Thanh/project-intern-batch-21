@@ -1,12 +1,13 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  protected baseUrl = '';
+  protected baseUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -21,48 +22,42 @@ export class ApiService {
     };
   }
 
-  // ========== Hàm tái sử dụng ==========
   // ========== Reusable API ==========
-  private getList<T>(endpoint: string): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}`;
+  public get<T>(path: string): Observable<T> {
+    const url = `${this.baseUrl}/${path}`;
     return this.http.get<T>(url, this.getHttpOptions());
   }
 
-  private getDetail<T>(endpoint: string, id: string): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}/${id}`;
+  public getDetail<T>(path: string, id: string | number): Observable<T> {
+    const url = `${this.baseUrl}/${path}/${id}`;
     return this.http.get<T>(url, this.getHttpOptions());
   }
 
-  private create<T>(endpoint: string, data: unknown): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}`;
+  public post<T>(path: string, data: unknown): Observable<T> {
+    const url = `${this.baseUrl}/${path}`;
     return this.http.post<T>(url, data, this.getHttpOptions());
   }
 
-  private update<T>(
-    endpoint: string,
-    id: string,
+  public put<T>(
+    path: string,
+    id: string | number,
     data: unknown,
   ): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}/${id}`;
+    const url = `${this.baseUrl}/${path}/${id}`;
     return this.http.put<T>(url, data, this.getHttpOptions());
   }
 
-  private partialUpdate<T>(
-    endpoint: string,
-    id: string,
+  public patch<T>(
+    path: string,
+    id: string | number,
     data: unknown,
   ): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}/${id}`;
+    const url = `${this.baseUrl}/${path}/${id}`;
     return this.http.patch<T>(url, data, this.getHttpOptions());
   }
 
-  private remove<T>(endpoint: string, id: string): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}/${id}`;
+  public delete<T>(path: string, id: string | number): Observable<T> {
+    const url = `${this.baseUrl}/${path}/${id}`;
     return this.http.delete<T>(url, this.getHttpOptions());
-  }
-
-  private restore<T>(endpoint: string, id: string): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}/${id}`;
-    return this.http.post<T>(url, null, this.getHttpOptions());
   }
 }
