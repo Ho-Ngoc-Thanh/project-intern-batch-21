@@ -82,19 +82,12 @@
                     <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full" [ngClass]="item.iconBg">
                         <!-- <i [class]="item.icon" class="text-[13px]" [ngClass]="item.iconColor"></i> -->
                         <!-- Type: class -->
-  <i
-    *ngIf="item.type === 'class'"
-    [ngClass]="[item.icon, item.iconColor]"
-    class="text-[13px] leading-none"
-  ></i>
+                        <i *ngIf="item.type === 'class'" [ngClass]="[item.icon, item.iconColor]"
+                            class="text-[13px] leading-none"></i>
 
-  <!-- Type: svg -->
-  <svg-icon
-    *ngIf="item.type === 'svg'"
-    [src]="item.icon"
-    [ngClass]="item.iconColor"
-    [svgStyle]="{ 'width.px': 14, 'height.px': 14 }"
-  ></svg-icon>
+                        <!-- Type: svg -->
+                        <svg-icon *ngIf="item.type === 'svg'" [src]="item.icon" [ngClass]="item.iconColor"
+                            [svgStyle]="{ 'width.px': 14, 'height.px': 14 }"></svg-icon>
                     </div>
 
                     <div>
