@@ -1,0 +1,113 @@
+<div class="grid grid-cols-1 items-stretch gap-4 xl:grid-cols-3">
+    <!-- Bên trái: Property Overview -->
+    <!-- <div class="xl:col-span-2">
+        <div class="rounded-[18px] bg-[#ffffff] p-5 shadow-sm ml-2 pb-10">
+            <div class="mb-4 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-semibold text-[#1f2937]">Property Overview</h3>
+                    <p class="mt-1 text-sm text-gray-400">Sales performance this week</p>
+                </div>
+
+                <span class="text-[14px] font-medium text-[#0F172B]">
+                    This Week
+                </span>
+            </div>
+
+            <div class="rounded-xl bg-white pt-3 pb-0 p-px">
+
+                <div class="h-[240px] mb-[-30px]">
+                    <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType">
+                    </canvas>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div> -->
+    <div class="xl:col-span-2 pl-2">
+        <div class="flex h-full flex-col rounded-[28px] bg-white/40  border border-[#f3e7ee]  p-5  ">
+            <div class="mb-4 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg font-semibold text-[#1f2937]">Property Overview</h3>
+                    <p class="mt-1 text-sm text-gray-400">Sales performance this week</p>
+                </div>
+
+                <span class="text-[14px] font-medium text-[#0F172B] pt-1">
+                    This Week
+                </span>
+            </div>
+
+            <div class="rounded-xl  p-0">
+                <div class="h-[240px] mt-7 rounded-xl ]  ">
+                    <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bên phải: Statistics -->
+    <div class="xl:col-span-1 pr-3">
+        <div class="h-full rounded-[28px]  bg-[#ffffff]/70 p-5 ">
+            <!-- Header -->
+            <div class="mb-4 flex items-center justify-between">
+                <h3 class="text-[22px] font-semibold text-[#1f2937]">Statistics</h3>
+                <button class="text-lg leading-none text-[#b8b3be]">⋮</button>
+            </div>
+
+            <!-- Summary -->
+            <div class="mb-4 rounded-xl p-4" style="
+          background: linear-gradient(
+            135deg,
+            #f7b8e7 0%,
+            #e5c4ff 28%,
+            #f4a8ff 52%,
+            #ffd0d8 78%,
+            #ffe0cc 100%
+          );
+        ">
+                <div class="mb-3 flex items-start justify-between">
+                    <span class="text-[13px] font-medium text-[#5b5563]">
+                        Total Properties
+                    </span>
+                    <span class="text-[13px] font-semibold text-[#2d2a32]">
+                        +{{ statistics.growth }}%
+                    </span>
+                </div>
+
+                <h2 class="mb-4 text-[56px] font-bold leading-none text-[#1f2937]">
+                    {{ statistics.totalProperties }}
+                </h2>
+
+                <div class="h-[12px] w-full rounded-full bg-transparent">
+                    <div class="h-full rounded-full bg-emerald-500" [style.width.%]="statistics.progress"></div>
+                </div>
+            </div>
+
+            <!-- Property Types -->
+            <div>
+                <h4 class="mb-3 text-[15px] font-semibold text-[#5b5563]">
+                    Property Types
+                </h4>
+
+                <div class="grid grid-cols-2 gap-x-6 gap-y-4">
+                    <div *ngFor="let item of propertyTypes" class="space-y-[6px]">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[13px] font-medium text-[#2f2d35]">
+                                {{ item.name }}
+                            </span>
+                            <span class="text-[13px] font-medium text-[#a7a0ad]">
+                                {{ item.value }}
+                            </span>
+                        </div>
+
+                        <div class="h-[8px] rounded-full" [ngClass]="item.color"
+                            [style.width.%]="getPropertyBarWidth(item.value)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
