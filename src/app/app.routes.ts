@@ -24,6 +24,13 @@ export const routes: Routes = [
     // canActivate:[authGuard]
   },
   {
+  path: 'lead-management',
+  loadComponent: () =>
+    import('./features/lead-management/lead-management.component').then(
+      (c) => c.LeadManagementComponent
+    ),
+},
+  {
     path: '',
     component: AuthLayoutComponent,
     loadChildren: () =>

@@ -1,0 +1,59 @@
+:host ::ng-deep .lead-table .p-datatable-wrapper {
+  overflow-x: auto;
+}
+
+:host ::ng-deep .lead-table table {
+  min-width: 1600px;
+  border-collapse: collapse;
+}
+
+:host ::ng-deep .lead-table .p-datatable-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+:host ::ng-deep .lead-table .p-datatable-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 999px;
+}
+
+:host ::ng-deep .lead-table .p-datatable-wrapper::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 999px;
+}
+
+:host ::ng-deep .lead-table .p-datatable-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+:host ::ng-deep .lead-table .p-paginator {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+:host ::ng-deep .lead-table .p-paginator-left-content {
+  justify-self: start;
+}
+
+:host ::ng-deep .lead-table .p-paginator-pages {
+  justify-self: center;
+}
+
+:host ::ng-deep .lead-table .p-paginator-right-content {
+  justify-self: end;
+}
+
+:host ::ng-deep .lead-table .p-datatable-table {
+  min-width: 1600px;
+}
+
+:host ::ng-deep .lead-table .p-datatable-wrapper {
+  overflow-x: auto !important;
+}
+
+:host ::ng-deep .lead-table .p-datatable-table {
+  table-layout: auto;
+  min-width: 1600px;
+}

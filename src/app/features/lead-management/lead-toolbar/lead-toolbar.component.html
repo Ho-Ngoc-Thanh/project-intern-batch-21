@@ -1,0 +1,73 @@
+<!-- <div class="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow-sm">
+    <div class="flex items-center gap-3">
+        <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">🔍</span>
+            <input type="text" placeholder="Search by name, ID, or phone number"
+                class="min-w-[280px] rounded-xl border border-[#e5e7eb] py-2.5 pl-9 pr-4 text-sm outline-none" />
+        </div>
+
+        <button class="rounded-xl border border-[#e5e7eb] px-4 py-2.5 text-sm">Filters</button>
+        <button class="rounded-xl border border-[#e5e7eb] px-4 py-2.5 text-sm">List</button>
+        <button class="rounded-xl border border-[#e5e7eb] px-4 py-2.5 text-sm">Appointment</button>
+    </div>
+
+    <div class="flex items-center gap-2">
+        <button class="rounded-xl border border-[#e5e7eb] px-4 py-2.5 text-sm">Import</button>
+        <button class="rounded-xl bg-emerald-500 px-4 py-2.5 text-sm text-white">Create</button>
+    </div>
+</div> -->
+
+<div class="flex items-center justify-between rounded-2xl bg-white p-4 shadow-sm mt-0 pl-0">
+
+    <!-- LEFT -->
+    <div class="relative ">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#9ca3af]">
+            <i class="pi pi-search text-[0.8rem]"></i>
+        </span>
+
+        <input type="text" placeholder="Search by name, ID, or phone number"
+            class="min-w-[320px] rounded-xl border border-[#e5e7eb] py-2.5 pl-9 pr-4 text-sm outline-none" />
+    </div>
+
+    <!-- RIGHT (group buttons lại) -->
+    <div class="flex items-center gap-2">
+
+        <button
+            class="inline-flex h-8 items-center gap-1 rounded-sm border border-slate-300 bg-white px-3 text-[15px] text-[#172B4D] shadow-sm hover:bg-slate-50">
+            <svg-icon src="assets/icons/filter-bar/filter-3-fill.svg"
+                [svgStyle]="{ width: '12px', height: '9px' }"></svg-icon>
+            <span>Filters</span>
+        </button>
+
+        <button
+            class="inline-flex h-8 items-center gap-2 rounded-sm border border-slate-300 bg-white px-3 text-[15px] text-[#172B4D] shadow-sm hover:bg-slate-50">
+            <i class="pi pi-list text-[12px]"></i>
+            <span>List</span>
+        </button>
+
+        <button
+            class="inline-flex h-8 items-center gap-2 rounded-sm border border-slate-300 bg-white px-3 text-[15px] text-[#172B4D] shadow-sm hover:bg-slate-50">
+            <i class="pi pi-calendar text-[12px]"></i>
+            <span>Appointment</span>
+            <i class="pi pi-angle-down ml-1 text-[12px] text-gray-400"></i>
+        </button>
+
+        <button
+            class="inline-flex h-8 items-center gap-1 rounded-sm border border-slate-300 bg-white px-3 text-[15px] text-[#172B4D] shadow-sm hover:bg-slate-50">
+            <svg-icon src="assets/icons/filter-bar/columns-3.svg" [svgStyle]="{ width: '12px', height: '12px' }">
+            </svg-icon>
+        </button>
+
+        <button
+            class="inline-flex h-8 items-center rounded-sm border border-slate-300 bg-white px-3 text-[15px] text-[#172B4D] shadow-sm hover:bg-slate-50">
+            Import
+        </button>
+
+        <button
+            class="inline-flex h-8 items-center gap-2 rounded-sm bg-emerald-600 px-3 text-[15px] text-white shadow-sm hover:bg-emerald-600">
+            <i class="pi pi-plus-circle text-[12px]"></i>
+            Create
+        </button>
+
+    </div>
+</div>
