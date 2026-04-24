@@ -1,0 +1,114 @@
+<section>
+    <h3 class="mb-4 text-[13px] font-semibold uppercase text-[#172B4D]">
+        PERSONAL INFORMATION
+    </h3>
+
+    <!-- Upload row -->
+    <div class="mb-4 flex items-center gap-5">
+        <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#F2F4F7]">
+            <svg-icon [src]="'assets/icons/sidebar/upload-image.svg'" [svgStyle]="{ width: '20px', height: '20px' }">
+            </svg-icon>
+        </div>
+
+        <div>
+            <p class="text-[13px] font-regular text-[#172B4D]">
+                Please upload profile photo in JPG or PNG format.
+            </p>
+            <p class="mt-1 text-[12px] text-[#758195]">
+                Ensure the file size does not exceed 2MB.
+            </p>
+
+            <button type="button" class="mt-2  bg-white px-3 py-1 text-[13px] text-[#172B4D]">
+                Upload
+            </button>
+        </div>
+    </div>
+
+    <!-- Same as main contact -->
+    <div class="mb-4 flex justify-end">
+        <label class="flex items-center gap-2 text-[13px] text-[#172B4D] font-medium">
+            <input type="checkbox" class="h-4 w-4 rounded border-[#D0D5DD]" />
+            Same as main contact
+        </label>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="mb-3 grid grid-cols-2 gap-3">
+        <input type="text" placeholder="Full name"
+            class="h-11 rounded-md border border-[#D0D5DD] px-3 text-[13px] outline-none placeholder:text-[#758195]" />
+
+        <input type="text" placeholder="Other name"
+            class="h-11 rounded-md border border-[#D0D5DD] px-3 text-[13px] outline-none placeholder:text-[#758195]" />
+    </div>
+
+    <!-- Row 2 -->
+    <div class="mb-3 grid grid-cols-3 gap-3">
+        <div class="flex h-11 flex-col justify-center rounded-md border border-[#D0D5DD] px-3">
+            <div class="text-[11px] leading-none text-[#758195]">
+                Cellphone
+            </div>
+            <div class="mt-[2px] flex items-center gap-2">
+                <span class="text-xs font-medium text-[#172B4D]">(+1)</span>
+                <i class="pi pi-sort-down-fill text-[#98A2B3]" style="font-size: 0.5rem"></i>
+                <span class="text-[13px] text-[#98A2B3]">000-000-0000</span>
+            </div>
+        </div>
+
+        <div class="flex h-11 flex-col justify-center rounded-md border border-[#D0D5DD] px-3">
+            <div class="text-[11px] leading-none text-[#758195]">
+                Work phone
+            </div>
+            <div class="mt-[2px] flex items-center gap-2">
+                <span class="text-xs font-medium text-[#172B4D]">(+1)</span>
+                <i class="pi pi-sort-down-fill text-[#98A2B3]" style="font-size: 0.5rem"></i>
+                <span class="text-[13px] text-[#98A2B3]">000-000-0000</span>
+            </div>
+        </div>
+
+        <input type="email" placeholder="Email"
+            class="h-11 rounded-md border border-[#D0D5DD] px-3 text-[13px] outline-none placeholder:text-[#758195]" />
+    </div>
+
+    <!-- Row 3 -->
+    <div class="mb-3 grid grid-cols-3 gap-3">
+        <div
+            class="flex h-11 items-center justify-between rounded-md border border-[#D0D5DD] px-3 text-[13px] text-[#758195]">
+            <span>Gender</span>
+            <i class="pi pi-sort-down-fill text-[#172B4D]" style="font-size: 0.5rem"></i>
+        </div>
+
+        <div
+            class="flex h-11 items-center justify-between rounded-md border border-[#D0D5DD] px-3 text-[13px] text-[#758195]">
+            <span>Date of birth</span>
+            <i class="pi pi-calendar text-[#172B4D]"></i>
+        </div>
+
+        <div
+            class="flex h-11 items-center justify-between rounded-md border border-[#D0D5DD] px-3 text-[13px] text-[#758195]">
+            <span>Marital status</span>
+            <i class="pi pi-sort-down-fill text-[#172B4D]" style="font-size: 0.5rem"></i>
+        </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="mb-3 grid grid-cols-2 gap-3">
+        <div
+            class="flex h-11 items-center justify-between rounded-md border border-[#e70202] px-3 text-[13px] text-[#758195]">
+            <span>Lead status <span class="text-[#DC2626]">*</span></span>
+            <i class="pi pi-sort-down-fill text-[#172B4D]" style="font-size: 0.5rem"></i>
+        </div>
+
+        <div
+            class="flex h-11 items-center justify-between rounded-md border border-[#D0D5DD] px-3 text-[13px] text-[#758195]">
+            <span>Lead stage</span>
+            <i class="pi pi-sort-down-fill text-[#172B4D]" style="font-size: 0.5rem"></i>
+        </div>
+    </div>
+
+    <!-- Lead tags -->
+    <div
+        class="flex h-11 items-center justify-between rounded-md border border-[#D0D5DD] px-3 text-[13px] text-[#758195]">
+        <span>Lead tags</span>
+        <i class="pi pi-sort-down-fill text-[#172B4D]" style="font-size: 0.5rem"></i>
+    </div>
+</section>

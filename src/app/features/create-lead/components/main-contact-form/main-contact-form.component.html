@@ -1,0 +1,70 @@
+<section>
+    <!-- Alert required -->
+    <div class="mb-4 rounded-md bg-red-100 px-4 py-2 text-[13px] leading-[18px] font-semibold text-[#DC2626]">
+        <span class="font-bold text-[13px]">*</span> Indicates required field.
+    </div>
+
+    <h3 class="mb-4 text-[13px] font-semibold uppercase text-[#172B4D]">
+        MAIN CONTACT
+    </h3>
+
+    <div class="grid grid-cols-2 gap-3">
+
+        <!-- Contact name -->
+        <div class="relative">
+            <!-- input thật -->
+            <input type="text" placeholder="Contact name"
+                class="h-11 w-full rounded-md border border-[#e70202] px-3 pr-6 text-[13px] outline-none placeholder:text-[#758195] focus:border-red-500" />
+
+            <!-- dấu * giả nằm trong input -->
+            <span
+                class="pointer-events-none absolute right-[77%] top-1/2 -translate-y-1/2 text-red-500 text-md font-bold">
+                *
+            </span>
+        </div>
+
+
+        <!-- Cellphone -->
+        <!-- Cellphone -->
+        <div class="h-11 rounded-md border border-[#e70202] px-3 flex flex-col justify-center focus:border-red-500">
+
+            <div class="text-[11px] leading-none text-[#758195] flex items-center gap-1">
+                <span>Cellphone</span>
+                <span class="text-red-500 text-[13px] font-bold">*</span>
+            </div>
+
+            <div class="flex items-center gap-2 mt-[2px]">
+                <span class="text-xs font-medium text-[#172B4D]">(+1)</span>
+
+                <i class="pi pi-sort-down-fill text-[6px] text-[#98A2B3]"></i>
+
+                <span class="text-[13px] text-[#98A2B3]">000-000-0000</span>
+            </div>
+
+        </div>
+
+        <!-- Email -->
+        <input type="email" placeholder="Email"
+            class="h-11 w-full rounded-md border  px-3 pr-6 text-[13px] outline-none placeholder:text-[#758195] " />
+
+
+
+        <!-- Work phone -->
+
+        <div class="h-11 rounded-md border border-[#d0d5dd] px-3 flex flex-col justify-center">
+
+            <div class="text-[11px] leading-none text-[#758195]">
+                Work phone
+            </div>
+
+            <div class="flex items-center gap-2 mt-[2px]">
+                <span class="text-xs font-medium text-[#172B4D]">(+1)</span>
+
+                <i class="pi pi-sort-down-fill text-[6px] text-[#98A2B3]"></i>
+                <span class=" text-[13px] text-[#98A2B3]">000-000-0000</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
