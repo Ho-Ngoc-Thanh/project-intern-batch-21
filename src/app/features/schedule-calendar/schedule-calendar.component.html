@@ -1,6 +1,14 @@
-<div id="schedule-calendar" class="px-6 py-2">
+<div id="schedule-calendar" class="px-6 py-4 flex flex-col h-full bg-white">
+  <!-- Header Title -->
+  <div class="mb-4">
+    <h1 class="text-xl font-semibold text-slate-800">Lead management</h1>
+  </div>
+
+  <!-- Toolbar -->
   <app-schedule-calendar-toolbar></app-schedule-calendar-toolbar>
 
-  <!-- content schedule calendar -->
-  <app-schedule-calendar-container></app-schedule-calendar-container>
+  <!-- Content Container -->
+  <div class="flex-1 min-h-0 bg-white">
+    <app-schedule-calendar-container></app-schedule-calendar-container>
+  </div>
 </div>

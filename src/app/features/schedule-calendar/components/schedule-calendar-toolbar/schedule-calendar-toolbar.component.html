@@ -4,7 +4,7 @@
       <form [formGroup]="toolbarForm">
         <app-form-control>
           <div
-            class="flex items-center px-3 py-2 ml-4 rounded-[4px] border border-gray-300 bg-white shadow-sm"
+            class="flex items-center px-3 h-9 rounded-md border border-gray-300 bg-white shadow-sm"
           >
             <i class="pi pi-search text-gray-400 mr-2"></i>
 
@@ -18,12 +18,12 @@
         </app-form-control>
       </form>
     </div>
-    <div class="flex items-center gap-1">
+    <div class="flex items-center gap-2">
       <!-- Filters -->
 
       <button
         type="button"
-        class="inline-flex h-8 items-center gap-2 rounded-sm border border-slate-300 bg-white px-3 text-[15px] font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+        class="inline-flex h-9 items-center gap-2 rounded-md border border-slate-300 bg-white px-3 text-[15px] font-medium text-slate-700 shadow-sm hover:bg-slate-50"
       >
         <svg-icon
           src="assets/icons/schedule_calendar/filters.svg"
@@ -34,19 +34,19 @@
 
       <!-- List / Calendar group -->
       <div
-        class="inline-flex h-8 overflow-hidden rounded-sm border border-slate-300 bg-white shadow-sm"
+        class="inline-flex h-9 overflow-hidden rounded-md border border-slate-300 bg-white shadow-sm"
       >
         <button
           type="button"
           (click)="selectedView = 'list'"
           [ngClass]="
             selectedView === 'list'
-              ? 'bg-slate-100 text-slate-900'
-              : 'bg-white text-slate-700 hover:bg-slate-50'
+              ? 'bg-[#ebedef] text-[#172b4d]'
+              : 'bg-white text-[#172b4d] hover:bg-slate-50'
           "
-          class="inline-flex items-center gap-2 border-r border-slate-300 px-3 text-[15px] font-medium"
+          class="inline-flex items-center gap-2 border-r border-slate-300 px-4 text-[15px] font-medium transition-colors"
         >
-          <i class="pi pi-list text-sm"></i>
+          <i class="pi pi-list text-[18px]"></i>
           <span>List</span>
         </button>
 
@@ -55,12 +55,12 @@
           (click)="selectedView = 'calendar'"
           [ngClass]="
             selectedView === 'calendar'
-              ? 'bg-slate-100 text-slate-900'
-              : 'bg-white text-slate-700 hover:bg-slate-50'
+              ? 'bg-[#ebedef] text-[#172b4d]'
+              : 'bg-white text-[#172b4d] hover:bg-slate-50'
           "
-          class="inline-flex items-center gap-2 px-3 text-[15px] font-medium"
+          class="inline-flex items-center gap-2 px-4 text-[15px] font-medium transition-colors"
         >
-          <i class="pi pi-calendar text-sm"></i>
+          <i class="pi pi-calendar text-[18px]"></i>
           <span>Calendar</span>
         </button>
       </div>
@@ -68,7 +68,7 @@
       <!-- Column view -->
       <button
         type="button"
-        class="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-slate-300 bg-white text-slate-700 shadow-sm hover:bg-slate-50"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 shadow-sm hover:bg-slate-50"
       >
         <svg-icon
           src="assets/icons/schedule_calendar/column_view.svg"
@@ -79,7 +79,7 @@
       <!-- Import -->
       <button
         type="button"
-        class="inline-flex h-8 items-center rounded-sm border border-slate-300 bg-white px-3 text-[15px] font-medium text-slate-700 shadow-sm hover:bg-slate-50"
+        class="inline-flex h-9 items-center rounded-md border border-slate-300 bg-white px-3 text-[15px] font-medium text-slate-700 shadow-sm hover:bg-slate-50"
       >
         Import
       </button>
@@ -87,7 +87,7 @@
       <!-- Create -->
       <button
         type="button"
-        class="inline-flex h-8 items-center gap-2 rounded-sm border border-blue-500 bg-blue-500 px-6 text-[15px] font-medium text-white shadow-sm hover:bg-blue-600"
+        class="inline-flex h-9 items-center gap-2 rounded-md bg-brand-primary px-3 text-[15px] font-medium text-white shadow-sm transition-all duration-200 hover:bg-green-600"
       >
         <i class="pi pi-plus-circle text-sm"></i>
         <span>Create</span>
