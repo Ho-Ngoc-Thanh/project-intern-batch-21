@@ -20,18 +20,33 @@ export const routes: Routes = [
             (c) => c.DashboardComponent,
           ),
       },
+     
     ],
     // canActivate:[authGuard]
   },
+
+
+
   {
     path: '',
     component: AuthLayoutComponent,
     loadChildren: () =>
-      import('./features/auth/auth.routes').then((feature) => feature.routes),
+      import('./features/auth/auth.routes').then(
+        (feature) => feature.routes,
+      ),
   },
+{
+        path: 'create-lead',
+        loadComponent: () =>
+          import('./features/create-lead/create-lead.component').then(
+            (c) => c.CreateLeadComponent,
+          ),
+      },
+
   {
     path: '**',
     pathMatch: 'full',
     component: NotFoundComponent,
   },
+   
 ];

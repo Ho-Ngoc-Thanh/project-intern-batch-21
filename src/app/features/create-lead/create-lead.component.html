@@ -1,0 +1,52 @@
+<div class="min-h-screen bg-[#f6f7fb] p-0">
+    <!-- ❗ bỏ max-w -->
+    <div class="w-full rounded-xs bg-white shadow-sm">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between  px-6 py-4">
+            <h2 class="text-xl font-semibold text-[#172B4D]">
+                Create lead
+            </h2>
+
+            <button type="button" class="text-xl text-[#6b7280] hover:text-[#172B4D]">
+                ×
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="grid grid-cols-[240px_1fr]">
+
+            <!-- Sidebar -->
+            <aside class="p-4">
+                <app-create-lead-sidebar></app-create-lead-sidebar>
+            </aside>
+
+            <!-- Form -->
+            <main class="max-h-[calc(100vh-180px)] overflow-y-auto p-6">
+                <app-main-contact-form></app-main-contact-form>
+
+                <div class="my-6 "></div>
+
+                <app-personal-info-form></app-personal-info-form>
+
+                <div class="my-6  "></div>
+
+                <app-address-form></app-address-form>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <div class="flex items-center justify-end gap-3 px-6 py-4">
+            <button type="button"
+                class="rounded-md border border-[#d0d5dd] bg-white px-4 py-2 text-sm font-medium text-[#344054] hover:bg-gray-50">
+                Cancel
+            </button>
+
+            <button type="button"
+                class="rounded-md bg-[#22c55e] px-4 py-2 text-sm font-medium text-white hover:bg-[#16a34a]">
+                Create
+            </button>
+        </div>
+
+    </div>
+</div>
