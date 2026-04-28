@@ -1,0 +1,99 @@
+:host ::ng-deep .fc-scrollgrid {
+  border: none !important;
+}
+
+:host ::ng-deep .fc-col-header th {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+:host ::ng-deep .fc-scrollgrid-shrink {
+  border: none !important;
+}
+
+:host ::ng-deep .fc-timegrid-slot {
+  border: 1px solid #ddd !important;
+  height: 106px !important;
+}
+
+:host ::ng-deep .fc-timegrid-axis {
+  border: none !important;
+  width: 64px !important;
+}
+
+:host ::ng-deep .fc-timegrid-slot-label {
+  border: none !important;
+}
+
+//custom day and weekday
+:host ::ng-deep .custom-day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 0 10px;
+}
+
+:host ::ng-deep .custom-day-weekday {
+  font-size: 12px;
+  font-weight: 400;
+  color: #94a3b8;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+:host ::ng-deep .custom-day-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1;
+}
+
+:host ::ng-deep .custom-day-weekday.is-today-text {
+  color: #3b82f6 !important;
+  font-weight: 600;
+}
+
+:host ::ng-deep .custom-day-number.is-today-number {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+// custom lịch đặt
+:host ::ng-deep .fc-event {
+  border: none !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+:host ::ng-deep .fc-timegrid-event {
+  border-radius: 4px !important;
+}
+
+:host ::ng-deep .fc-event-main {
+  padding: 0 !important;
+  border-left: 3px solid currentColor;
+  width: 100%;
+}
+
+:host ::ng-deep .fc-custom-event {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 3px 8px 3px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
