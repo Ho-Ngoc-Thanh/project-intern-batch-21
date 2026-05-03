@@ -1,0 +1,47 @@
+{
+  "user": {
+    "id": "u1",
+    "name": "Sarah"
+  },
+  "stats": [
+    {
+      "key": "totalProperties",
+      "label": "Total Properties",
+      "value": 847,
+      "growth": 12.5,
+      "icon": "assets/icons/sidebar/dashboard.svg",
+      "color": "text-emerald-400",
+      "type": "svg"
+
+    },
+    {
+      "key": "activeListings",
+      "label": "Active Listings",
+      "value": 142,
+      "growth": 8.2,
+      "icon": "pi-chart-line",
+      "color": "text-sky-500",
+      "type": "class"
+      
+    },
+    {
+      "key": "soldThisMonth",
+      "label": "Sold This Month",
+      "value": 67,
+      "growth": 23.7,
+      "icon": "pi-home",
+      "color": "text-violet-400",
+      "type": "class"
+    },
+    {
+      "key": "totalRevenue",
+      "label": "Total Revenue",
+      "value": 12400000,
+      "displayValue": "$12.4M",
+      "growth": 15.3,
+      "icon": "pi-chart-bar",
+      "color": "text-orange-400",
+      "type": "class"
+    }
+  ]
+}

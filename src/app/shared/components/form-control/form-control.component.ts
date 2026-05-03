@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ValidatorMessage } from './../../../models/interfaces/form-control.model';
+import { ValidatorMessage } from '../../../models/interfaces/form-control.interface';
 import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
