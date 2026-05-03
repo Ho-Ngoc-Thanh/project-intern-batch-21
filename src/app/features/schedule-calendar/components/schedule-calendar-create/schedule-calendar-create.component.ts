@@ -10,6 +10,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { DropdownModule } from 'primeng/dropdown';
 import { TooltipModule } from 'primeng/tooltip';
 import { CalendarModule } from 'primeng/calendar';
+import { ScheduleService } from '../../services/schedule.service';
 
 @Component({
   selector: 'app-schedule-calendar-create',
@@ -44,7 +45,7 @@ export class ScheduleCalendarCreateComponent implements OnInit {
     end: new Date(2024, 6, 10, 13, 30),
     visibility: 'Public',
     color: '#8B5CF6',
-    createdDate: '07/10/2024 10:50',
+    createdDate: '', // Will be set in ngOnInit
     createdBy: 'Tony Pham',
     reminder: '5 min before',
     commentUser: 'Tony Pham',
@@ -67,9 +68,23 @@ export class ScheduleCalendarCreateComponent implements OnInit {
 
   colorOptions = ['#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#3B82F6'];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private scheduleService: ScheduleService) {}
 
   ngOnInit() {
+    // Set current time for createdDate
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
+    const formattedTime = now.toLocaleTimeString('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    });
+    this.mockData.createdDate = `${formattedDate} ${formattedTime}`;
+
     this.createForm = this.fb.group({
       description: [this.mockData.description],
       start: [this.mockData.start],
@@ -95,7 +110,23 @@ export class ScheduleCalendarCreateComponent implements OnInit {
   }
 
   onSave() {
-    console.log('Saving data:', this.createForm.value);
+    const formValue = this.createForm.value;
+    const newEvent = {
+      title: this.mockData.title,
+      description: formValue.description,
+      start: formValue.start,
+      end: formValue.end,
+      backgroundColor: formValue.color,
+      textColor: '#ffffff',
+      lead: this.mockData.lead,
+      visibility: formValue.visibility,
+      color: formValue.color,
+      createdDate: this.mockData.createdDate,
+      createdBy: this.mockData.createdBy,
+      reminder: formValue.reminder,
+    };
+
+    this.scheduleService.addEvent(newEvent);
     this.onClose();
   }
 }
