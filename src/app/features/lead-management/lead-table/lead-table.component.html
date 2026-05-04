@@ -1,79 +1,5 @@
-<!-- <div class=" rounded-2xl border border-[#e5e7eb] bg-white shadow-sm">
-    <div class="overflow-x-auto custom-scrollbar">
-        <table class="min-w-[1600px]">
-            <thead class="bg-[#091E42]/[0.08]">
-                <tr class="text-left text-sm font-semibold text-[#1f2937]">
-                    <th class="w-10 px-4 py-4">
-                        <input type="checkbox" class="h-4 w-4 rounded border-[#d1d5db]" />
-                    </th>
-                    <th class="px-4 py-4">Owner</th>
-                    <th class="px-4 py-4">Lead</th>
-                    <th class="px-4 py-4">Lead ID</th>
-                    <th class="px-4 py-4">Lead type</th>
-                    <th class="px-4 py-4">Status</th>
-                    <th class="px-4 py-4">Lead stage</th>
-                    <th class="px-4 py-4">Contact name</th>
-                    <th class="px-4 py-4">Cellphone</th>
-                    <th class="px-4 py-4">Work</th>
-                    <th class="px-4 py-4"></th>
-                    <th class="px-4 py-4"></th>
-                    <th class="px-4 py-4"></th>
-                    <th class="px-4 py-4"></th>
-
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr *ngFor="let item of leads"
-                    class="border-b border-[#eef2f7] text-sm text-[#374151] hover:bg-gray-50">
-                    <td class="w-10 px-4 py-4">
-                        <input type="checkbox" class="h-4 w-4 rounded border-[#d1d5db]" />
-                    </td>
-                    <td class="px-4 py-4">{{ item.owner }}</td>
-                    <td class="px-4 py-4">
-                        <div class="flex items-center gap-2">
-                            <div
-                                class="flex h-7 w-7 items-center justify-center rounded-full bg-pink-100 text-[10px] font-semibold text-pink-600">
-                                {{ getInitials(item.lead) }}
-                            </div>
-
-                            <span class="font-medium text-[#2563eb]">
-                                {{ item.lead }}
-                            </span>
-                        </div>
-                    </td>
-
-                    <td class="px-4 py-4">{{ item.leadId }}</td>
-                    <td class="px-4 py-4">{{ item.leadType }}</td>
-                    <td class="px-4 py-4">
-                        <span class="rounded-full px-3 py-1 text-xs font-medium"
-                            [ngClass]="getStatusClass(item.status)">
-                            {{ item.status }}
-                        </span>
-                    </td>
-
-                    <td class="px-4 py-4">{{ item.stage }}</td>
-                    <td class="px-4 py-4">{{ item.contactName }}</td>
-                    <td class="px-4 py-4">{{ item.cellphone }}</td>
-                    <td class="px-4 py-4">{{ item.work }}</td>
-                    <td class="px-4 py-4">
-                        <div class="flex items-center gap-3">
-                            <span class="text-green-500">📄</span>
-
-                            <span class="cursor-pointer text-gray-500">⋮</span>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <app-lead-pagination></app-lead-pagination>
-</div> -->
-
-
 <div class="overflow-hidden rounded-2xl border border-[#e5e7eb] bg-white shadow-sm">
-    <p-table [value]="leads" [(selection)]="selectedLeads" dataKey="leadId" responsiveLayout="scroll"
+    <p-table [value]="displayedLeads" [(selection)]="selectedLeads" dataKey="leadId" responsiveLayout="scroll"
         [scrollable]="true" scrollHeight="flex" [paginator]="false" styleClass="lead-table">
 
         <ng-template pTemplate="header">
@@ -101,10 +27,10 @@
                     <p-tableCheckbox [value]="item"></p-tableCheckbox>
                 </td>
 
-                <!-- 2. Cột Owner (Dùng làm chuẩn kích thước) -->
+                <!-- 2. Cột Owner ) -->
                 <td>{{ item.owner }}</td>
 
-                <!-- 3. Cột Lead (Giữ màu xanh #2563eb) -->
+                <!-- 3. Cột Lead -->
                 <td>
                     <div class="flex items-center gap-2">
                         <div class="flex h-7 w-7 flex-shrink-0 items-center justify-center">
@@ -119,14 +45,14 @@
                             <div *ngIf="!item.showAvatar" class="h-7 w-7"></div>
                         </div>
 
-                        <!-- Tên Lead giữ nguyên màu xanh -->
+
                         <span class="font-medium text-[#2563eb] hover:underline cursor-pointer">
                             {{ item.lead }}
                         </span>
                     </div>
                 </td>
 
-                <!-- 4. Các cột dữ liệu khác dùng màu #172B4D -->
+
                 <td>{{ item.leadId }}</td>
                 <td>{{ item.leadType }}</td>
 
@@ -146,7 +72,6 @@
                 <td>
                     <div class="flex items-center gap-3">
                         <button class="flex items-center justify-center">
-                            <!-- Hạ kích thước SVG xuống 18px để vừa với hàng (48px sẽ quá to) -->
                             <svg-icon src="assets/icons/filter-bar/file-search.svg"
                                 [svgStyle]="{ width: '32px', height: '32px', fill: '#22c55e' }">
                             </svg-icon>
@@ -158,5 +83,5 @@
             </tr>
         </ng-template>
     </p-table>
-    <app-lead-pagination></app-lead-pagination>
+    <app-lead-pagination (pageChange)="onPageChange($event)"></app-lead-pagination>
 </div>

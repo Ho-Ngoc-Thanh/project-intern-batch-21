@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TableModule } from 'primeng/table';
@@ -8,212 +8,122 @@ import { LeadPaginationComponent } from './lead-pagination/lead-pagination.compo
 @Component({
   selector: 'app-lead-table',
   standalone: true,
-  imports: [CommonModule,CheckboxModule,TableModule, LeadPaginationComponent, SvgIconComponent ],
+  imports: [
+    CommonModule,
+    CheckboxModule,
+    TableModule,
+    LeadPaginationComponent,
+    SvgIconComponent,
+  ],
   templateUrl: './lead-table.component.html',
-  styleUrl: './lead-table.component.scss'
+  styleUrl: './lead-table.component.scss',
 })
-export class LeadTableComponent {
+export class LeadTableComponent implements OnInit {
+  leads: any[] = [];
+  selectedLeads: any[] = [];
+  displayedLeads: any[] = [];
+currentPage = 0;
+rows = 15;
 
-
-leads = [
+  ngOnInit() {
+   const baseData = [
   {
     owner: 'John Doe',
     lead: 'Sean Lewis (Huynh Tran)',
     avatar: 'https://i.pravatar.cc/40?img=1',
-    showAvatar: true, // CASE 1
-    leadId: '93964209',
+    showAvatar: true,
     leadType: 'Prospect',
     status: 'Cellphone',
     stage: 'Cellphone',
     contactName: 'Sean Lewis',
     cellphone: '(872) 808-2228',
-    work: '(872)'
+    work: '(872)',
   },
   {
     owner: 'Mary Johnson',
     lead: 'Heather Phelps (Hanh Nguyen)',
     avatar: null,
-    showAvatar: false, // CASE 2 (chỉ text)
-    leadId: '72095259',
+    showAvatar: false,
     leadType: 'Prospect',
     status: 'Interest',
     stage: 'Cellphone',
     contactName: 'Hanh Nguyen',
     cellphone: '(431) 863-3901',
-    work: '(431)'
+    work: '(431)',
   },
   {
     owner: 'Robert White',
     lead: 'Alice Scott (Anh Pham)',
     avatar: 'https://i.pravatar.cc/40?img=3',
-    showAvatar: true, // CASE 1
-    leadId: '64025801',
+    showAvatar: true,
     leadType: 'Customer',
     status: 'Follow now',
     stage: 'Quote & Agent',
     contactName: 'Alice Scott',
     cellphone: '(515) 540-5844',
-    work: '(515)'
+    work: '(515)',
   },
   {
     owner: 'David Lee',
     lead: 'Kimberly Harper (Kim Phan)',
     avatar: null,
-    showAvatar: true, // CASE 3 (chữ tròn)
-    leadId: '79740157',
-    leadType: 'Customer',
-    status: 'Follow now',
-    stage: 'Get Quote',
-    contactName: 'Kim Phan',
-    cellphone: '(300) 284-5608',
-    work: '(300)'
-  },
-  {
-    owner: 'Sarah Green',
-    lead: 'Angel Young (Anh Dinh)',
-    avatar: 'https://i.pravatar.cc/40?img=5',
-    showAvatar: true, // CASE 1
-    leadId: '60088327',
+    showAvatar: true,
     leadType: 'Customer',
     status: 'Follow later',
     stage: 'Get Quote',
-    contactName: 'Anh Dinh',
-    cellphone: '(610) 430-2971',
-    work: '(610)'
+    contactName: 'Kim Phan',
+    cellphone: '(300) 284-5608',
+    work: '(300)',
   },
   {
     owner: 'James King',
     lead: 'Chelsea Wilson (Chien Le)',
     avatar: null,
-    showAvatar: false, // CASE 2
-    leadId: '35792510',
+    showAvatar: true,
     leadType: 'Prospect',
     status: 'Stop',
     stage: 'Cellphone',
     contactName: 'Chelsea Wilson',
     cellphone: '(991) 671-7177',
-    work: '(991)'
-  },
-  {
-    owner: 'Karen Scott',
-    lead: 'Christian Rodriguez (Trinh Trinh)',
-    avatar: 'https://i.pravatar.cc/40?img=7',
-    showAvatar: true, // CASE 1
-    leadId: '30706374',
-    leadType: 'Prospect',
-    status: 'Cellphone',
-    stage: 'Cellphone',
-    contactName: 'Christian Rodriguez',
-    cellphone: '(811) 463-1554',
-    work: '(811)'
-  },
-  {
-    owner: 'Marri Mark',
-    lead: 'Marcus Macias (Mai Anh Nguyen)',
-    avatar: null,
-    showAvatar: true, // CASE 3
-    leadId: '35803570',
-    leadType: 'Customer',
-    status: 'Cellphone',
-    stage: 'Won',
-    contactName: 'Mai Anh Nguyen',
-    cellphone: '(903) 276-8543',
-    work: '(903)'
+    work: '(991)',
   },
   {
     owner: 'Patricia Taylor',
     lead: 'Christopher Smith (Hoang Phan)',
-    avatar: 'https://i.pravatar.cc/40?img=9',
-    showAvatar: true, // CASE 1
-    leadId: '23482394',
+    avatar: null,
+    showAvatar: false,
     leadType: 'Prospect',
     status: 'Closed',
     stage: 'Get Quote',
     contactName: 'Hoang Phan',
     cellphone: '(578) 170-5251',
-    work: '(578)'
+    work: '(578)',
   },
-  {
-    owner: 'Charles Miller',
-    lead: 'Christine Bartlett (Vy Doan)',
-    avatar: null,
-    showAvatar: false, // CASE 2
-    leadId: '97566368',
-    leadType: 'Customer',
-    status: 'Follow later',
-    stage: 'Won',
-    contactName: 'Christine Bartlett',
-    cellphone: '(759) 352-2654',
-    work: '(759)'
-  },
-  {
-    owner: 'Laura Edwards',
-    lead: 'Jill Gaines (Minh Le)',
-    avatar: 'https://i.pravatar.cc/40?img=11',
-    showAvatar: true,
-    leadId: '74969729',
-    leadType: 'Customer',
-    status: 'Stop',
-    stage: 'Quote & Agent',
-    contactName: 'Minh Le',
-    cellphone: '(675) 113-4224',
-    work: '(675)'
-  },
-  {
-    owner: 'Amanda Young',
-    lead: 'Megan Mosley (My Tran)',
-    avatar: null,
-    showAvatar: true, // CASE 3
-    leadId: '78325974',
-    leadType: 'Prospect',
-    status: 'Interest',
-    stage: 'Won',
-    contactName: 'Megan Mosley',
-    cellphone: '(469) 586-6708',
-    work: '(469)'
-  },
-  {
-    owner: 'Christopher Hill',
-    lead: 'Scott Campbell (Viet Dinh)',
-    avatar: 'https://i.pravatar.cc/40?img=13',
-    showAvatar: true,
-    leadId: '92789855',
-    leadType: 'Customer',
-    status: 'Follow now',
-    stage: 'Quote & Agent',
-    contactName: 'Viet Dinh',
-    cellphone: '(451) 223-5620',
-    work: '(451)'
-  },
-  {
-    owner: 'Brian Carter',
-    lead: 'Kristin Mason (Kien Pham)',
-    avatar: null,
-    showAvatar: false, // CASE 2
-    leadId: '37528997',
-    leadType: 'Prospect',
-    status: 'Cellphone',
-    stage: 'Cellphone',
-    contactName: 'Kristin Mason',
-    cellphone: '(419) 654-7499',
-    work: '(419)'
-  },
-  {
-    owner: 'Laura Edwards',
-    lead: 'John Foster (Long Nguyen)',
-    avatar: 'https://i.pravatar.cc/40?img=15',
-    showAvatar: true,
-    leadId: '29556154',
-    leadType: 'Customer',
-    status: 'Closed',
-    stage: 'Quote & Agent',
-    contactName: 'John Foster',
-    cellphone: '(386) 995-1766',
-    work: '(386)'
-  }
 ];
+    const usedIds = new Set<string>();
 
-  selectedLeads: any[] = [];
+    for (let i = 1; i <= 1500; i++) {
+      const item = baseData[(i - 1) % baseData.length];
+
+      let leadId = '';
+      do {
+        leadId = Math.floor(10000000 + Math.random() * 90000000).toString();
+      } while (usedIds.has(leadId));
+
+      usedIds.add(leadId);
+
+      this.leads.push({
+        ...item,
+        leadId,
+        owner: `${item.owner} ${i}`,
+        lead: `${item.lead} ${i}`,
+        avatar: item.avatar
+          ? `https://i.pravatar.cc/40?img=${(i % 70) + 1}`
+          : null,
+      });
+    }
+      this.updateDisplayedLeads(); 
+  }
 
   getStatusClass(status: string) {
     switch (status) {
@@ -235,22 +145,35 @@ leads = [
   }
 
   getInitials(name: string): string {
-  return name
-    .split(' ')
-    .map(word => word[0])
-    .join('')
-    .substring(0, 2)
-    .toUpperCase();
+    return name
+      .split(' ')
+      .map((word) => word[0])
+      .join('')
+      .substring(0, 2)
+      .toUpperCase();
+  }
+
+  getAvatarColor(name: string) {
+    const colors = [
+      'bg-pink-100 text-pink-600',
+      'bg-blue-100 text-blue-600',
+      'bg-green-100 text-green-600',
+      'bg-purple-100 text-purple-600',
+    ];
+
+    return colors[name.charCodeAt(0) % colors.length];
+  }
+updateDisplayedLeads() {
+  const start = this.currentPage * this.rows;
+  const end = start + this.rows;
+
+  this.displayedLeads = this.leads.slice(start, end);
 }
-getAvatarColor(name: string) {
-  const colors = [
-    'bg-pink-100 text-pink-600',
-    'bg-blue-100 text-blue-600',
-    'bg-green-100 text-green-600',
-    'bg-purple-100 text-purple-600'
-  ];
-  const index = name.charCodeAt(0) % colors.length;
-  return colors[index];
-} 
+
+onPageChange(event: { page: number; rows: number }) {
+  this.currentPage = event.page;
+  this.rows = event.rows;
+  this.updateDisplayedLeads();
+}
 
 }
