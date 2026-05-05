@@ -10,6 +10,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SearchInputComponent } from 'src/app/shared/components/search-input/search-input.component';
 
 @Component({
   selector: 'app-schedule-calendar-toolbar',
@@ -22,13 +23,17 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    SearchInputComponent,
   ],
   templateUrl: './schedule-calendar-toolbar.component.html',
   styleUrl: './schedule-calendar-toolbar.component.scss',
 })
 export class ScheduleCalendarToolbarComponent {
-  toolbarForm = new FormGroup({
-    search: new FormControl(''),
-  });
   selectedView: 'list' | 'calendar' = 'calendar';
+
+  onSearch(keyword: string) {
+    console.log('Call API với:', keyword);
+
+    // this.service.search(keyword).subscribe(...)
+  }
 }
