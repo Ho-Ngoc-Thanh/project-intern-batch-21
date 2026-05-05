@@ -3,6 +3,7 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
+
 export const routes: Routes = [
   {
     path: '',
@@ -20,16 +21,23 @@ export const routes: Routes = [
             (c) => c.DashboardComponent,
           ),
       },
+
+      
+      {
+        path: 'lead-management',
+        loadComponent: () =>
+          import('./features/lead-management/lead-management.component').then(
+            (c) => c.LeadManagementComponent
+          ),
+      },
+
+      
+
+      
     ],
     // canActivate:[authGuard]
   },
-  {
-  path: 'lead-management',
-  loadComponent: () =>
-    import('./features/lead-management/lead-management.component').then(
-      (c) => c.LeadManagementComponent
-    ),
-},
+
   {
     path: '',
     component: AuthLayoutComponent,
