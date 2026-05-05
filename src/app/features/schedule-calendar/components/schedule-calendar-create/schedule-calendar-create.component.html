@@ -23,9 +23,12 @@
         class="text-xs font-medium text-slate-400 uppercase tracking-wide"
         >{{ mockData.id }}</span
       >
-      <h2 class="text-xl font-bold text-[#172b4d] mt-1 leading-tight">
-        {{ mockData.title }}
-      </h2>
+      <input
+        type="text"
+        formControlName="title"
+        placeholder="Enter title"
+        class="w-full text-xl font-bold text-[#172b4d] mt-1 leading-tight border-none p-0 focus:ring-0 bg-transparent"
+      />
     </div>
 
     <!-- Description Section -->

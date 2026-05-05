@@ -41,8 +41,8 @@ export class ScheduleCalendarCreateComponent implements OnInit {
       name: 'Alice Scott',
       avatar: 'https://ui-avatars.com/api/?name=Alice+Scott&background=random',
     },
-    start: new Date(2024, 6, 10, 13, 0),
-    end: new Date(2024, 6, 10, 13, 30),
+    start: new Date(),
+    end: new Date(new Date().getTime() + 30 * 60 * 1000),
     visibility: 'Public',
     color: '#8B5CF6',
     createdDate: '', // Will be set in ngOnInit
@@ -86,6 +86,7 @@ export class ScheduleCalendarCreateComponent implements OnInit {
     this.mockData.createdDate = `${formattedDate} ${formattedTime}`;
 
     this.createForm = this.fb.group({
+      title: [this.mockData.title],
       description: [this.mockData.description],
       start: [this.mockData.start],
       end: [this.mockData.end],
@@ -112,7 +113,7 @@ export class ScheduleCalendarCreateComponent implements OnInit {
   onSave() {
     const formValue = this.createForm.value;
     const newEvent = {
-      title: this.mockData.title,
+      title: formValue.title ?? this.mockData.title,
       description: formValue.description,
       start: formValue.start,
       end: formValue.end,
