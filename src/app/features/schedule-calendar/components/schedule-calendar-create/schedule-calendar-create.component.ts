@@ -10,7 +10,7 @@ import { SvgIconComponent } from 'angular-svg-icon';
 import { DropdownModule } from 'primeng/dropdown';
 import { TooltipModule } from 'primeng/tooltip';
 import { CalendarModule } from 'primeng/calendar';
-import { ScheduleService } from '../../services/schedule.service';
+import { ScheduleService } from '../../../../services/schedule.service';
 
 @Component({
   selector: 'app-schedule-calendar-create',

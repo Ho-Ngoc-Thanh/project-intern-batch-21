@@ -13,7 +13,7 @@ import {
 import { CalendarOptions } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import { ScheduleService } from '../../services/schedule.service';
+import { ScheduleService } from '../../../../services/schedule.service';
 import { Subscription } from 'rxjs';
 
 type CalendarViewMode = 'timeGridDay' | 'timeGridWeek';
@@ -149,7 +149,7 @@ export class ScheduleCalendarContainerComponent implements AfterViewInit {
           ...this.calendarOptions,
           events: events as any,
         };
-      })
+      }),
     );
 
     setTimeout(() => {

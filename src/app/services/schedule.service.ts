@@ -97,7 +97,9 @@ export class ScheduleService {
     },
   ];
 
-  private eventsSubject = new BehaviorSubject<ScheduleEvent[]>(this.initialEvents);
+  private eventsSubject = new BehaviorSubject<ScheduleEvent[]>(
+    this.initialEvents,
+  );
   events$ = this.eventsSubject.asObservable();
 
   addEvent(event: ScheduleEvent) {
