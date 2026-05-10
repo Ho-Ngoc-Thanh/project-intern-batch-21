@@ -1,0 +1,105 @@
+<div class="font-roboto">
+  <!-- TITLE & TOOLBAR -->
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-6 font-bold text-neutral-900">Relationship</h2>
+    
+    <div class="flex items-center gap-4">
+      <!-- Search -->
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Search"
+          class="h-10 w-80 pl-10 pr-4 rounded-lg border border-neutral-300 outline-none focus:ring-2 focus:ring-primary-500 text-3 transition-all"
+        />
+        <svg class="w-5 h-5 text-neutral-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </div>
+
+      <!-- Sort -->
+      <button class="h-10 px-4 rounded-lg border border-neutral-300 flex items-center gap-2 text-3 font-medium text-neutral-700 hover:bg-neutral-50 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path></svg>
+        Sort
+      </button>
+
+      <!-- Filters -->
+      <button class="h-10 px-4 rounded-lg border border-neutral-300 flex items-center gap-2 text-3 font-medium text-neutral-700 hover:bg-neutral-50 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+        Filters
+      </button>
+
+      <!-- Add -->
+      <button class="h-10 px-4 rounded-lg bg-indigo-600 flex items-center gap-2 text-3 font-medium text-white hover:bg-indigo-700 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+        Add
+      </button>
+    </div>
+  </div>
+
+  <!-- TABLE CONTAINER -->
+  <div class="bg-neutral-0 border border-neutral-200 rounded-xl overflow-hidden shadow-sm">
+    <table class="w-full text-left border-collapse">
+      <!-- HEADER -->
+      <thead class="bg-neutral-100 border-b border-neutral-200">
+        <tr>
+          <th class="px-6 py-4 text-3 font-bold text-neutral-800">Name</th>
+          <th class="px-6 py-4 text-3 font-bold text-neutral-800">Lead ID</th>
+          <th class="px-6 py-4 text-3 font-bold text-neutral-800">Type</th>
+          <th class="px-6 py-4 text-3 font-bold text-neutral-800">Relationship</th>
+          <th class="px-6 py-4 w-24"></th>
+        </tr>
+      </thead>
+
+      <!-- FILTER ROW -->
+      <tbody class="border-b border-neutral-200">
+        <tr class="bg-neutral-0">
+          <td class="px-4 py-3">
+            <div class="relative">
+              <select class="w-full h-10 pl-3 pr-10 border border-neutral-200 rounded-lg text-3 text-neutral-500 appearance-none outline-none focus:ring-1 focus:ring-primary-500">
+                <option>Lead name</option>
+              </select>
+              <svg class="w-4 h-4 text-neutral-400 absolute right-3 top-3 pointer-events-none" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </div>
+          </td>
+          <td class="px-4 py-3">
+            <input type="text" class="w-full h-10 px-3 border border-neutral-200 rounded-lg text-3 outline-none focus:ring-1 focus:ring-primary-500" />
+          </td>
+          <td class="px-4 py-3">
+            <input type="text" placeholder="Type" class="w-full h-10 px-3 border border-neutral-200 rounded-lg text-3 text-neutral-500 outline-none focus:ring-1 focus:ring-primary-500" />
+          </td>
+          <td class="px-4 py-3">
+            <input type="text" placeholder="Relationship" class="w-full h-10 px-3 border border-neutral-200 rounded-lg text-3 text-neutral-500 outline-none focus:ring-1 focus:ring-primary-500" />
+          </td>
+          <td class="px-4 py-3 text-center">
+            <div class="flex items-center justify-center gap-4">
+              <svg class="w-5 h-5 text-blue-600 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <svg class="w-5 h-5 text-red-500 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+
+      <!-- DATA ROWS -->
+      <tbody class="divide-y divide-neutral-200">
+        @for (rel of relationships; track rel.id) {
+          <tr class="hover:bg-neutral-50 transition-colors">
+            <td class="px-6 py-4">
+              <div class="flex items-center gap-3">
+                <img [src]="rel.avatarUrl" class="w-8 h-8 rounded-full border border-neutral-200 object-cover" />
+                <a href="#" class="text-3 font-medium text-blue-600 hover:underline">{{ rel.name }}</a>
+              </div>
+            </td>
+            <td class="px-6 py-4 text-3 text-neutral-700 font-medium">{{ rel.leadId }}</td>
+            <td class="px-6 py-4 text-3 text-neutral-700">{{ rel.type }}</td>
+            <td class="px-6 py-4 text-3 text-neutral-700">{{ rel.relationship }}</td>
+            <td class="px-6 py-4">
+              <div class="flex items-center justify-center gap-4">
+                <svg class="w-5 h-5 text-neutral-700 cursor-pointer hover:text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                <svg class="w-5 h-5 text-red-500 cursor-pointer hover:text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
