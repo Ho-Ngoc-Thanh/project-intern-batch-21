@@ -38,7 +38,7 @@ export class LeadDetailComponent implements OnInit {
       name: 'Alice Scott',
       otherName: 'Thuỳ An',
       avatarUrl: 'https://i.pravatar.cc/120?u=alice',
-      bannerUrl: 'https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=1000',
+      bannerUrl: 'assets/images/lead-detail/img_cover.jpg',
       gender: 'Female',
       age: 28,
       dob: '11/10/1989',
