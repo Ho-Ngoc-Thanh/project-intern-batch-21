@@ -1,0 +1,98 @@
+<div class="calendar-wrapper p-3">
+  <div class="flex items-center justify-between mb-4">
+    <!-- LEFT -->
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-semibold text-slate-800">
+        {{ currentTitle }}
+      </h2>
+      <i class="pi pi-sort-down-fill text-sm"></i>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="flex items-center gap-2">
+      <!-- Buttons -->
+      <button
+        class="px-3 h-9 text-sm rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition"
+      >
+        All
+        <span class="pi pi-angle-down text-xs mt-[1px]"></span>
+      </button>
+
+      <div class="view-dropdown relative inline-block">
+        <!-- Button -->
+        <button
+          type="button"
+          (click)="toggleViewMenu()"
+          class="flex items-center gap-2 px-3 h-9 text-sm rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition"
+        >
+          {{ currentViewLabel }}
+          <span
+            class="pi pi-angle-down text-xs transition-transform"
+            [class.rotate-180]="isViewMenuOpen"
+          ></span>
+        </button>
+
+        <!-- Dropdown -->
+        <div
+          *ngIf="isViewMenuOpen"
+          class="absolute mt-2 w-28 bg-white border border-slate-200 rounded-md shadow-md z-50"
+        >
+          <button
+            type="button"
+            (click)="selectView('timeGridDay')"
+            class="w-full text-left px-3 py-2 text-sm hover:bg-slate-50 rounded-t-md"
+            [class.bg-slate-100]="currentView === 'timeGridDay'"
+          >
+            Day
+          </button>
+
+          <button
+            type="button"
+            (click)="selectView('timeGridWeek')"
+            class="w-full text-left px-3 py-2 text-sm hover:bg-slate-50 rounded-b-md"
+            [class.bg-slate-100]="currentView === 'timeGridWeek'"
+          >
+            Week
+          </button>
+        </div>
+      </div>
+
+      <button
+        (click)="goToday()"
+        class="px-3 h-9 text-sm rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition"
+      >
+        Today
+      </button>
+
+      <!-- Icon buttons -->
+      <button
+        (click)="goPrev()"
+        class="w-9 h-9 flex items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition"
+      >
+        <i class="pi pi-chevron-left"></i>
+      </button>
+
+      <button
+        (click)="goNext()"
+        class="w-9 h-9 flex items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 transition"
+      >
+        <i class="pi pi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="calendar-content relative">
+    <span class="absolute left-3 top-3 text-sm text-slate-400 z-10">
+      {{ currentUTC }}
+    </span>
+
+    <div
+      #timeLabel
+      class="absolute left-0 text-red-500 text-sm font-bold z-10 bg-white px-1"
+    >
+      {{ currentTime }}
+    </div>
+
+    <full-calendar #calendar [options]="calendarOptions"></full-calendar>
+  </div>
+</div>

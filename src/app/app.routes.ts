@@ -3,6 +3,7 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
+
 export const routes: Routes = [
   {
     path: '',
@@ -50,6 +51,13 @@ export const routes: Routes = [
           ),
       },
 
+  {
+    path: 'calendar',
+    loadComponent: () =>
+      import('./features/schedule-calendar/schedule-calendar.component').then(
+        (c) => c.ScheduleCalendarComponent,
+      ),
+  },
   {
     path: '**',
     pathMatch: 'full',
