@@ -20,6 +20,15 @@ export const routes: Routes = [
             (c) => c.DashboardComponent,
           ),
       },
+
+      {
+        path: 'lead-management',
+        loadComponent: () =>
+          import('./features/lead-management/lead-management.component').then(
+            (c) => c.LeadManagementComponent,
+          ),
+      },
+
       {
         path: 'calendar',
         loadComponent: () =>
@@ -30,6 +39,7 @@ export const routes: Routes = [
     ],
     // canActivate:[authGuard]
   },
+
   {
     path: '',
     component: AuthLayoutComponent,
