@@ -20,6 +20,13 @@ export const routes: Routes = [
             (c) => c.DashboardComponent,
           ),
       },
+      {
+  path: 'create-lead',
+  loadComponent: () =>
+    import('./features/create-lead/create-lead.component').then(
+      (c) => c.CreateLeadComponent,
+    ),
+},
      
     ],
     // canActivate:[authGuard]
