@@ -1,6 +1,6 @@
 <div class="font-roboto">
   <!-- TITLE & TOOLBAR -->
-  <h2 class="text-6 font-bold text-neutral-900 mb-4">Relationship</h2>
+  <h2 class="text-6 font-bold text-neutral-900 mb-7">Relationship</h2>
   <div class="mb-6">
     <div class="flex justify-between gap-4 mb-5">
       <!-- Search -->
@@ -8,6 +8,7 @@
         <input
           type="text"
           placeholder="Search"
+          [(ngModel)]="searchText"
           class="h-10 w-full pl-10 pr-4 rounded-lg border border-neutral-300 outline-none focus:ring-2 focus:ring-primary-500 text-3 transition-all"
         />
 
@@ -21,6 +22,7 @@
       <div class="flex gap-4">
         <!-- Sort -->
         <button
+          (click)="toggleSort()"
           class="h-10 px-4 rounded-lg border border-neutral-300 flex items-center gap-2 text-3 font-medium text-neutral-700 hover:bg-neutral-50 transition-colors"
         >
           <svg-icon
@@ -28,7 +30,9 @@
             class=""
             [svgStyle]="{ 'width.px': 16, 'height.px': 16 }"
           ></svg-icon>
-          Sort
+          <span *ngIf="sortAsc === null">Sort</span>
+          <span *ngIf="sortAsc === true">A → Z</span>
+          <span *ngIf="sortAsc === false">Z → A</span>
         </button>
 
         <!-- Filters -->
@@ -66,7 +70,13 @@
         <!-- HEADER -->
         <thead class="bg-neutral-100 border-b border-neutral-200">
           <tr>
-            <th class="px-6 py-4 text-3 font-bold text-neutral-800">Name</th>
+            <th class="px-6 py-4 text-3 font-bold text-neutral-800">
+              <button (click)="toggleSort()" class="flex items-center gap-2">
+                Name
+                <!-- <span *ngIf="sortAsc === true">▲</span>
+                <span *ngIf="sortAsc === false">▼</span> -->
+              </button>
+            </th>
             <th class="px-6 py-4 text-3 font-bold text-neutral-800">Lead ID</th>
             <th class="px-6 py-4 text-3 font-bold text-neutral-800">Type</th>
             <th class="px-6 py-4 text-3 font-bold text-neutral-800">
@@ -136,7 +146,7 @@
         <!-- DATA ROWS -->
         <tbody class="divide-y divide-neutral-200">
           <tr
-            *ngFor="let rel of relationships; trackBy: trackByRel"
+            *ngFor="let rel of displayedRelationships; trackBy: trackByRel"
             [ngClass]="{
               'bg-blue-50': editingId === rel.id,
               'hover:bg-neutral-50': editingId !== rel.id,

@@ -24,6 +24,11 @@ export class LeadRelationshipTableComponent {
     avatarUrl: '',
   };
 
+  // Search and sort
+  searchText: string = '';
+  // null = no sort, true = asc, false = desc
+  sortAsc: boolean | null = null;
+
   trackByRel(_index: number, item: Relationship) {
     return item.id;
   }
@@ -79,5 +84,43 @@ export class LeadRelationshipTableComponent {
 
   cancelEdit() {
     this.editingId = null;
+  }
+
+  toggleSort() {
+    if (this.sortAsc === null) {
+      this.sortAsc = true;
+    } else {
+      this.sortAsc = !this.sortAsc;
+    }
+  }
+
+  get displayedRelationships(): Relationship[] {
+    const q = this.searchText?.trim().toLowerCase();
+    let list = (this.relationships ?? []) as Relationship[];
+
+    if (q) {
+      list = list.filter((r) => {
+        const name = (r.name || '').toLowerCase();
+        const leadId = (r.leadId || '').toLowerCase();
+        const type = (r.type || '').toLowerCase();
+        const rel = (r.relationship || '').toLowerCase();
+        return (
+          name.includes(q) ||
+          leadId.includes(q) ||
+          type.includes(q) ||
+          rel.includes(q)
+        );
+      });
+    }
+
+    if (this.sortAsc === null) return list;
+
+    return list.slice().sort((a, b) => {
+      const an = (a.name || '').toLowerCase();
+      const bn = (b.name || '').toLowerCase();
+      if (an < bn) return this.sortAsc ? -1 : 1;
+      if (an > bn) return this.sortAsc ? 1 : -1;
+      return 0;
+    });
   }
 }
