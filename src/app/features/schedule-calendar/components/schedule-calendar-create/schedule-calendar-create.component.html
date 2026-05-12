@@ -21,7 +21,7 @@
     <div class="mb-6">
       <span
         class="text-xs font-medium text-slate-400 uppercase tracking-wide"
-        >{{ mockData.id }}</span
+        >New calendar</span
       >
       <input
         type="text"
@@ -62,12 +62,12 @@
           <span class="w-28 text-[15px] text-[#758195]">Lead</span>
           <div class="flex items-center gap-2">
             <img
-              [src]="mockData.lead.avatar"
+              [src]="currentUserAvatar"
               alt="Avatar"
               class="w-6 h-6 rounded-full object-cover"
             />
             <span class="text-[15px] text-[#172b4d] font-semibold">{{
-              mockData.lead.name
+              currentUserName
             }}</span>
           </div>
         </div>
@@ -180,7 +180,7 @@
           </div>
           <span class="w-28 text-[15px] text-[#758195]">Created date</span>
           <span class="text-[15px] text-[#172b4d] font-semibold">{{
-            mockData.createdDate
+            currentDateLabel
           }}</span>
         </div>
 
@@ -194,7 +194,7 @@
           </div>
           <span class="w-28 text-[15px] text-[#758195]">Created by</span>
           <span class="text-[15px] text-[#172b4d] font-semibold">{{
-            mockData.createdBy
+            currentUserName
           }}</span>
         </div>
 
@@ -226,7 +226,7 @@
       <div class="bg-[#f8fafc] rounded-md p-2 border border-slate-200">
         <div class="mb-1 pl-6">
           <span class="text-sm font-bold text-[#172b4d]">{{
-            mockData.commentUser
+            currentUserName
           }}</span>
         </div>
         <div class="pl-2">

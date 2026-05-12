@@ -32,24 +32,10 @@ export class ScheduleCalendarCreateComponent implements OnInit {
 
   createForm!: FormGroup;
   isColorPickerOpen = false;
-
-  mockData = {
-    id: 'DRT-20452',
-    title: 'Volunteer Day',
-    description: '',
-    lead: {
-      name: 'Alice Scott',
-      avatar: 'https://ui-avatars.com/api/?name=Alice+Scott&background=random',
-    },
-    start: new Date(),
-    end: new Date(new Date().getTime() + 30 * 60 * 1000),
-    visibility: 'Public',
-    color: '#8B5CF6',
-    createdDate: '', // Will be set in ngOnInit
-    createdBy: 'Tony Pham',
-    reminder: '5 min before',
-    commentUser: 'Tony Pham',
-  };
+  currentDateLabel = '';
+  currentUserName = 'Current user';
+  currentUserAvatar = 'https://ui-avatars.com/api/?name=Current+user&background=random';
+  defaultColor = '';
 
   visibilityOptions = [
     { label: 'Public', value: 'Public' },
@@ -71,8 +57,9 @@ export class ScheduleCalendarCreateComponent implements OnInit {
   constructor(private fb: FormBuilder, private scheduleService: ScheduleService) {}
 
   ngOnInit() {
-    // Set current time for createdDate
     const now = new Date();
+    const start = new Date(now);
+    const end = new Date(now.getTime() + 30 * 60 * 1000);
     const formattedDate = now.toLocaleDateString('en-GB', {
       day: '2-digit',
       month: '2-digit',
@@ -83,16 +70,23 @@ export class ScheduleCalendarCreateComponent implements OnInit {
       minute: '2-digit',
       hour12: false,
     });
-    this.mockData.createdDate = `${formattedDate} ${formattedTime}`;
+    this.currentDateLabel = `${formattedDate} ${formattedTime}`;
+
+    const storedFullName = localStorage.getItem('fullName')?.trim();
+    this.currentUserName = storedFullName || 'Current user';
+    this.currentUserAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+      this.currentUserName,
+    )}&background=random`;
+    this.defaultColor = this.colorOptions[Math.floor(Math.random() * this.colorOptions.length)];
 
     this.createForm = this.fb.group({
-      title: [this.mockData.title],
-      description: [this.mockData.description],
-      start: [this.mockData.start],
-      end: [this.mockData.end],
-      visibility: [this.mockData.visibility],
-      color: [this.mockData.color],
-      reminder: [this.mockData.reminder],
+      title: [''],
+      description: [''],
+      start: [start],
+      end: [end],
+      visibility: ['Public'],
+      color: [this.defaultColor],
+      reminder: ['5 min before'],
       comment: [''],
     });
   }
@@ -112,18 +106,23 @@ export class ScheduleCalendarCreateComponent implements OnInit {
 
   onSave() {
     const formValue = this.createForm.value;
+    const fallbackColor = this.defaultColor;
+
     const newEvent = {
-      title: formValue.title ?? this.mockData.title,
+      title: formValue.title,
       description: formValue.description,
       start: formValue.start,
       end: formValue.end,
-      backgroundColor: formValue.color,
+      backgroundColor: formValue.color || fallbackColor,
       textColor: '#ffffff',
-      lead: this.mockData.lead,
+      lead: {
+        name: this.currentUserName,
+        avatar: this.currentUserAvatar,
+      },
       visibility: formValue.visibility,
-      color: formValue.color,
-      createdDate: this.mockData.createdDate,
-      createdBy: this.mockData.createdBy,
+      color: formValue.color || fallbackColor,
+      createdDate: this.currentDateLabel,
+      createdBy: this.currentUserName,
       reminder: formValue.reminder,
     };
 
