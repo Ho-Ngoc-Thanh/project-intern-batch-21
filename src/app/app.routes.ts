@@ -30,6 +30,14 @@ export const routes: Routes = [
       },
 
       {
+        path: 'lead/:id',
+        loadComponent: () =>
+          import('./features/lead-detail/lead-detail.component').then(
+            (c) => c.LeadDetailComponent,
+          ),
+      },
+
+      {
         path: 'calendar',
         loadComponent: () =>
           import('./features/schedule-calendar/schedule-calendar.component').then(
@@ -47,13 +55,7 @@ export const routes: Routes = [
       import('./features/auth/auth.routes').then((feature) => feature.routes),
   },
 
-  {
-    path: 'lead-datail',
-    loadComponent: () =>
-      import('./features/lead-detail/lead-detail.component').then(
-        (c) => c.LeadDetailComponent,
-      ),
-  },
+  // removed misspelled standalone route 'lead-datail' — handled under MainLayout children as 'lead/:id'
   {
     path: '**',
     pathMatch: 'full',
