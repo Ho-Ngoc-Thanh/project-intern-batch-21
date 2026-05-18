@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControlComponent } from 'src/app/shared/components/form-control/form-control.component';
 import { ButtonModule } from 'primeng/button';
 import { SvgIconComponent } from 'angular-svg-icon';
@@ -29,7 +29,16 @@ import { SearchInputComponent } from 'src/app/shared/components/search-input/sea
   styleUrl: './schedule-calendar-toolbar.component.scss',
 })
 export class ScheduleCalendarToolbarComponent {
+  @Output() create = new EventEmitter<void>();
+
+  toolbarForm = new FormGroup({
+    search: new FormControl(''),
+  });
   selectedView: 'list' | 'calendar' = 'calendar';
+
+  onCreate() {
+    this.create.emit();
+  }
 
   onSearch(keyword: string) {
     console.log('Call API với:', keyword);

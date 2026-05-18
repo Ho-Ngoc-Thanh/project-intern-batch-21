@@ -3,7 +3,6 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
-
 export const routes: Routes = [
   {
     path: '',
@@ -22,18 +21,21 @@ export const routes: Routes = [
           ),
       },
 
-      
       {
         path: 'lead-management',
         loadComponent: () =>
           import('./features/lead-management/lead-management.component').then(
-            (c) => c.LeadManagementComponent
+            (c) => c.LeadManagementComponent,
           ),
       },
 
-      
-
-      
+      {
+        path: 'calendar',
+        loadComponent: () =>
+          import('./features/schedule-calendar/schedule-calendar.component').then(
+            (c) => c.ScheduleCalendarComponent,
+          ),
+      },
     ],
     // canActivate:[authGuard]
   },
@@ -44,13 +46,7 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./features/auth/auth.routes').then((feature) => feature.routes),
   },
-  {
-    path: 'calendar',
-    loadComponent: () =>
-      import('./features/schedule-calendar/schedule-calendar.component').then(
-        (c) => c.ScheduleCalendarComponent,
-      ),
-  },
+
   {
     path: '**',
     pathMatch: 'full',
