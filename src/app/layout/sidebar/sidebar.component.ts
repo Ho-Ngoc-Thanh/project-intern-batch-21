@@ -29,7 +29,7 @@ export class SidebarComponent {
     {
       title: 'Calendar',
       icon: 'pi pi-calendar',
-      route: '/reports',
+      route: '/calendar',
       type: 'class',
       badge: 0,
     },

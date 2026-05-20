@@ -3,7 +3,6 @@ import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component'
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
-
 export const routes: Routes = [
   {
     path: '',
@@ -22,13 +21,36 @@ export const routes: Routes = [
           ),
       },
       {
-  path: 'create-lead',
-  loadComponent: () =>
-    import('./features/create-lead/create-lead.component').then(
-      (c) => c.CreateLeadComponent,
-    ),
-},
-     
+          path: 'create-lead',
+          loadComponent: () =>
+            import('./features/create-lead/create-lead.component').then(
+              (c) => c.CreateLeadComponent,
+            ),
+        },     
+
+      {
+        path: 'lead-management',
+        loadComponent: () =>
+          import('./features/lead-management/lead-management.component').then(
+            (c) => c.LeadManagementComponent,
+          ),
+      },
+
+      {
+        path: 'lead/:id',
+        loadComponent: () =>
+          import('./features/lead-detail/lead-detail.component').then(
+            (c) => c.LeadDetailComponent,
+          ),
+      },
+
+      {
+        path: 'calendar',
+        loadComponent: () =>
+          import('./features/schedule-calendar/schedule-calendar.component').then(
+            (c) => c.ScheduleCalendarComponent,
+          ),
+      },
     ],
     // canActivate:[authGuard]
   },
@@ -43,25 +65,11 @@ export const routes: Routes = [
         (feature) => feature.routes,
       ),
   },
-{
-        path: 'create-lead',
-        loadComponent: () =>
-          import('./features/create-lead/create-lead.component').then(
-            (c) => c.CreateLeadComponent,
-          ),
-      },
 
-  {
-    path: 'calendar',
-    loadComponent: () =>
-      import('./features/schedule-calendar/schedule-calendar.component').then(
-        (c) => c.ScheduleCalendarComponent,
-      ),
-  },
+  // removed misspelled standalone route 'lead-datail' — handled under MainLayout children as 'lead/:id'
   {
     path: '**',
     pathMatch: 'full',
     component: NotFoundComponent,
   },
-   
 ];
