@@ -20,6 +20,13 @@ export const routes: Routes = [
             (c) => c.DashboardComponent,
           ),
       },
+      {
+          path: 'create-lead',
+          loadComponent: () =>
+            import('./features/create-lead/create-lead.component').then(
+              (c) => c.CreateLeadComponent,
+            ),
+        },     
 
       {
         path: 'lead-management',
@@ -48,11 +55,15 @@ export const routes: Routes = [
     // canActivate:[authGuard]
   },
 
+
+
   {
     path: '',
     component: AuthLayoutComponent,
     loadChildren: () =>
-      import('./features/auth/auth.routes').then((feature) => feature.routes),
+      import('./features/auth/auth.routes').then(
+        (feature) => feature.routes,
+      ),
   },
 
   // removed misspelled standalone route 'lead-datail' — handled under MainLayout children as 'lead/:id'
